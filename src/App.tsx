@@ -23,26 +23,20 @@ const PROJECTS = [
     accent: '#4A90D9',
   },
   {
-    name: 'Glovea',
+    name: 'Glovea (formerly DermaFlo)',
     url: 'https://www.glovea.co.uk',
-    description: 'Premium hand and foot warming cream brand. Built the brand from scratch — product development, website, marketing, and go-to-market strategy.',
-    tags: ['Brand Building', 'E-commerce', 'Product Dev', 'Marketing'],
+    description: 'Premium warming cream for hands and feet. Founded from scratch — commercial strategy, IP analysis, regulatory affairs, demand study, competitive landscaping, and price analysis. Took it from concept through pitch deck to live brand.',
+    tags: ['Founder', 'Brand Building', 'Regulatory', 'Commercial Strategy', 'E-commerce'],
     accent: '#E8734A',
-  },
-  {
-    name: 'DermaFlo',
-    url: 'https://canva.link/nibh5zrqgrh1kyg',
-    description: 'Skincare startup — developed the concept, pitch deck, product strategy, and investor materials. Full founder journey from zero to fundraise-ready.',
-    tags: ['Startup', 'Pitch Deck', 'Product Strategy', 'Fundraising'],
-    accent: '#F4A261',
+    deckUrl: 'https://canva.link/nibh5zrqgrh1kyg',
   },
 ]
 
 const SKILLS = [
-  { category: 'Languages & Frameworks', items: ['TypeScript', 'React', 'Python', 'Node.js', 'Tailwind CSS', 'Vite'] },
-  { category: 'Data & Backend', items: ['Supabase', 'PostgreSQL', 'Edge Functions', 'REST APIs', 'GitHub Actions'] },
-  { category: 'AI & Data', items: ['LLM Integration', 'NLP Pipelines', 'Data Scraping', 'Gemini / Groq / Mistral'] },
-  { category: 'Product & Business', items: ['Product Strategy', 'Brand Building', 'Go-to-Market', 'Pitch Decks', 'Sales'] },
+  { category: 'Engineering', items: ['TypeScript', 'React', 'Python', 'Node.js', 'Tailwind CSS', 'Vite', 'Supabase', 'PostgreSQL'] },
+  { category: 'Data & AI', items: ['LLM Integration', 'NLP Pipelines', 'Data Pipelines', 'Web Scraping', 'Survey Analysis', 'Revenue Modelling'] },
+  { category: 'Pharma & Life Sciences', items: ['Market Access', 'Reimbursement Strategy', 'Clinical Trial Design', 'Competitive Landscaping', 'Regulatory Affairs', 'IP Analysis'] },
+  { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Brand Strategy', 'Sales Force Strategy', 'Due Diligence', 'Demand Studies', 'Pitch Decks'] },
 ]
 
 function App() {
@@ -73,6 +67,15 @@ function App() {
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
+            <a
+              href="https://www.linkedin.com/in/jhmillett/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-light hover:text-white transition-colors"
+              aria-label="LinkedIn"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
           </div>
         </div>
       </nav>
@@ -89,7 +92,7 @@ function App() {
           <p className="text-xl sm:text-2xl text-text-light leading-relaxed mb-8 animate-fade-in-up animate-delay-200">
             I build things. Products, platforms, brands — from zero to live.
             <br className="hidden sm:block" />
-            <span className="text-teal">Founder</span> &middot; <span className="text-blue">Builder</span> &middot; <span className="text-gold">Operator</span>
+            <span className="text-teal">Scientist</span> &middot; <span className="text-blue">Strategist</span> &middot; <span className="text-gold">Builder</span>
           </p>
           <div className="flex items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
             <a
@@ -121,18 +124,18 @@ function App() {
           <div className="grid sm:grid-cols-2 gap-8">
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I'm a London-based founder and builder who moves fast and ships faster. I don't just talk about ideas — I build them, launch them, and put them in front of users.
+                I'm a London-based founder and builder with a background in life sciences and pharma strategy. Imperial College London trained, <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">published researcher</a>, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients.
               </p>
               <p>
-                From real-time news intelligence platforms to pharmaceutical data products and consumer brands, I work across the full stack — product, engineering, design, and go-to-market.
+                Now I build. Real-time news intelligence platforms, pharmaceutical data products, and consumer brands — from zero to live, across the full stack.
               </p>
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I'm self-taught and obsessively hands-on. If something needs building, I'll figure out how. If it needs shipping, I'll get it live. If it needs selling, I'll be on the calls.
+                I move fast and ship faster. If something needs building, I'll figure out how. If it needs shipping, I'll get it live. If it needs selling, I'll be on the calls.
               </p>
               <p>
-                Right now I'm running multiple projects simultaneously — because one thing at a time was never really my style.
+                Right now I'm running multiple ventures simultaneously — because one thing at a time was never really my style.
               </p>
             </div>
           </div>
@@ -218,25 +221,49 @@ function App() {
                 period: '2026 — Present',
                 role: 'Founder & Builder',
                 company: 'Self-employed',
-                description: 'Building GlobalNewly, Drug Atlas, and Glovea simultaneously. Full-stack product development, data pipelines, AI integration, and brand strategy.',
+                description: 'Building GlobalNewly (real-time news intelligence), Drug Atlas (pharma data platform), and Glovea (consumer brand) simultaneously. Full-stack product development, data pipelines, AI integration, and commercial strategy.',
               },
               {
                 period: 'Feb — Mar 2026',
                 role: 'Demo Creation & Software Research',
-                company: 'Opvia (Seal)',
-                description: 'Contract work creating product demos and conducting software research for the sales team at this London-based startup.',
+                company: 'Opvia (trading as Seal)',
+                description: 'Contract engagement creating product demos and conducting software research for the sales team.',
               },
               {
-                period: '2025 — 2026',
+                period: '2024 — 2026',
                 role: 'Founder',
-                company: 'DermaFlo',
-                description: 'Skincare startup — developed product concept, pitch deck, business strategy, and took it from idea to fundraise-ready.',
+                company: 'Cooden Cosmetics (Glovea)',
+                description: 'Developing a warming cream for cold hands and feet. Led commercial strategy through extensive due diligence — primary/secondary market research, IP analysis, regulatory affairs strategy, demand study, competitive landscaping, and pricing.',
+              },
+              {
+                period: '2023 — 2024',
+                role: 'Associate Consultant II → Associate Consultant I',
+                company: 'Putnam Associates',
+                description: 'Strategy consultant serving Fortune 500 biopharma, biotech, and PE/VC clients. Conducted demand studies, revenue forecast models, go/no-go assessments, regulatory & reimbursement plans, brand strategies, and sales force strategies across medical devices, blockbuster drugs, gene therapies, and COVID-19 vaccines.',
+              },
+              {
+                period: '2023',
+                role: 'Strategy Consultant (Pro Bono)',
+                company: '180 Degrees Consulting',
+                description: 'Provided marketing strategy consulting to a leading UK non-profit — consumer segmentation, ROI prediction, and go-to-market plan used to launch their app.',
+              },
+              {
+                period: '2022',
+                role: 'Business Strategy Intern',
+                company: 'Multus Media (Clean Meat Biotech)',
+                description: 'Designed and conducted market research for competitors, consumers, and trends. Findings led the CEO to modify the company\'s pipeline to address new markets.',
+              },
+              {
+                period: 'Summer',
+                role: 'Research Intern — Malaria Lab / CRISPR Dissertation',
+                company: 'Imperial College London (Gates Foundation funded)',
+                description: 'Analysed qualitative data to design approaches for increasing specificity in genetically editing mosquitoes. Published researcher — co-authored work on a novel enzyme (ACS Synthetic Biology). CRISPR gene-editing dissertation.',
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-6 group">
                 <div className="flex flex-col items-center">
                   <div className="w-3 h-3 rounded-full bg-accent mt-1.5 shrink-0" />
-                  {i < 2 && <div className="w-px flex-1 bg-border mt-2" />}
+                  {i < 6 && <div className="w-px flex-1 bg-border mt-2" />}
                 </div>
                 <div className="pb-2">
                   <p className="text-xs font-mono text-text-mid mb-1">{item.period}</p>
@@ -272,6 +299,14 @@ function App() {
               className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
             >
               GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jhmillett/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
+            >
+              LinkedIn
             </a>
           </div>
         </div>
