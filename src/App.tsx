@@ -487,20 +487,36 @@ function App() {
             ))}
           </div>
 
-          {/* Published Research callout */}
-          <div className="mt-8 bg-navy-card border border-teal/30 rounded-xl p-6">
-            <h4 className="text-sm font-semibold text-teal mb-2">Published Research</h4>
-            <p className="text-text-light text-sm leading-relaxed mb-3">
-              Co-authored a paper on a novel enzyme published in ACS Synthetic Biology — one of the leading journals in the field.
-            </p>
-            <a
-              href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-teal text-sm font-mono hover:underline"
-            >
-              Read the paper &rarr;
-            </a>
+          {/* Published Research & Patent */}
+          <div className="mt-8 grid sm:grid-cols-2 gap-6">
+            <div className="bg-navy-card border border-teal/30 rounded-xl p-6">
+              <h4 className="text-sm font-semibold text-teal mb-2">Published Research</h4>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                Co-authored a paper on a novel enzyme published in ACS Synthetic Biology — one of the leading journals in the field.
+              </p>
+              <a
+                href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-teal text-sm font-mono hover:underline"
+              >
+                Read the paper &rarr;
+              </a>
+            </div>
+            <div className="bg-navy-card border border-accent/30 rounded-xl p-6">
+              <h4 className="text-sm font-semibold text-accent mb-2">Patent Filing</h4>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                UK patent application for transdermal technology developed at Cooden Cosmetics (DermaFlo / Glovea).
+              </p>
+              <a
+                href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent text-sm font-mono hover:underline"
+              >
+                View patent GB2513248.1 &rarr;
+              </a>
+            </div>
           </div>
 
           {/* Leadership callout */}
