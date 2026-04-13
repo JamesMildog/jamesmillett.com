@@ -4,6 +4,7 @@ const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -25,8 +26,8 @@ const PROJECTS = [
   {
     name: 'Glovea (formerly DermaFlo)',
     url: 'https://www.glovea.co.uk',
-    description: 'Premium warming cream for hands and feet. Founded from scratch — commercial strategy, IP analysis, regulatory affairs, demand study, competitive landscaping, and price analysis. Took it from concept through pitch deck to live brand.',
-    tags: ['Founder', 'Brand Building', 'Regulatory', 'Commercial Strategy', 'E-commerce'],
+    description: 'Transdermal warming cream for hands and feet. Co-founded with GMP manufacturing JV. Patent filings, regulatory workstreams, investor data room, and full commercial strategy. Awarded Homerton Changemakers Prize. Selected for Discovery Spark Programme.',
+    tags: ['Founder CEO', 'GMP Manufacturing', 'IP Strategy', 'Regulatory', 'Brand'],
     accent: '#E8734A',
     deckUrl: 'https://canva.link/nibh5zrqgrh1kyg',
   },
@@ -34,9 +35,77 @@ const PROJECTS = [
 
 const SKILLS = [
   { category: 'Engineering', items: ['TypeScript', 'React', 'Python', 'Node.js', 'Tailwind CSS', 'Vite', 'Supabase', 'PostgreSQL'] },
-  { category: 'Data & AI', items: ['LLM Integration', 'NLP Pipelines', 'Data Pipelines', 'Web Scraping', 'Survey Analysis', 'Revenue Modelling'] },
-  { category: 'Pharma & Life Sciences', items: ['Market Access', 'Reimbursement Strategy', 'Clinical Trial Design', 'Competitive Landscaping', 'Regulatory Affairs', 'IP Analysis'] },
-  { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Brand Strategy', 'Sales Force Strategy', 'Due Diligence', 'Demand Studies', 'Pitch Decks'] },
+  { category: 'Data & AI', items: ['LLM Integration', 'NLP Pipelines', 'Data Pipelines', 'Web Scraping', 'Biological Modelling', 'Statistical Testing', 'Revenue Modelling'] },
+  { category: 'Pharma & Life Sciences', items: ['Market Access', 'Reimbursement Strategy', 'Clinical Trial Design', 'Competitive Landscaping', 'Regulatory Affairs', 'IP Strategy', 'GMP Manufacturing'] },
+  { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Brand Strategy', 'Sales Force Strategy', 'Due Diligence', 'Demand Studies', 'Financial Modelling', 'Pitch Decks'] },
+]
+
+const EXPERIENCE = [
+  {
+    period: '2026 — Present',
+    role: 'Founder & Builder',
+    company: 'Self-employed',
+    description: 'Building GlobalNewly (real-time news intelligence), Drug Atlas (pharma data platform), and Glovea (consumer brand) simultaneously. Full-stack product development, data pipelines, AI integration, and commercial strategy.',
+  },
+  {
+    period: 'Feb — Mar 2026',
+    role: 'Demo Creation & Software Research',
+    company: 'Opvia (trading as Seal)',
+    description: 'Contract engagement creating product demos and conducting software research for the sales team.',
+  },
+  {
+    period: '2024 — 2026',
+    role: 'Co-founder & CEO',
+    company: 'DermaFlo / Cooden Cosmetics (Glovea)',
+    description: 'End-to-end commercial and technical development of transdermal technologies spanning cosmetic formulations, medical devices, and novel APIs. Negotiated and structured a JV with a GMP manufacturer. Led IP strategy including patent filings, trademarks, and brand protection. Built the business plan, financial models, and investor data room. Managed transition from R&D to commercial readiness across legal, regulatory, manufacturing, and marketing.',
+  },
+  {
+    period: '2023 — 2024',
+    role: 'Associate Consultant II & I (19 months)',
+    company: 'Putnam Associates',
+    description: 'Strategy consultant serving Fortune 500 biopharma, biotech, and PE/VC clients. Demand studies feeding revenue forecast models. Go/no-go assessments covering reimbursement, clinical trial design, competitive landscape, and market size. Regulatory, market access, and reimbursement plans. Brand strategy for blockbuster products. Sales force strategy for gene therapies. Regulatory and distribution planning for COVID-19 vaccines.',
+  },
+  {
+    period: '2023',
+    role: 'Strategy Consultant (Pro Bono)',
+    company: '180 Degrees Consulting',
+    description: 'Marketing strategy consulting for a leading UK non-profit — consumer segmentation, ROI prediction, and go-to-market plan used to launch their app.',
+  },
+  {
+    period: '2022',
+    role: 'Business Strategy Intern',
+    company: 'Multus Media (Clean Meat Biotech)',
+    description: 'Designed and conducted market research for competitors, consumers, and trends. Findings communicated directly to the CEO, leading the company to modify its pipeline to address new markets.',
+  },
+  {
+    period: 'Summer',
+    role: 'Research Intern — Malaria Genetic Engineering Lab',
+    company: 'Imperial College London (Gates Foundation funded)',
+    description: 'Designed an approach to increase specificity when genetically editing mosquitoes. Constructed the design and quantified statistical significance vs. the previous approach. Collected, analysed, and presented data to peers and field experts. Published researcher — co-authored work on a novel enzyme (ACS Synthetic Biology).',
+  },
+]
+
+const EDUCATION = [
+  {
+    degree: 'PGCE',
+    institution: 'University of Cambridge',
+    detail: 'Completed alongside DermaFlo to develop structured leadership and communication skills for early-stage company growth.',
+  },
+  {
+    degree: 'MRes Systems & Synthetic Biology — Merit',
+    institution: 'Imperial College London',
+    detail: 'Distinction in 4 of 5 modules. Quantitative modelling in Python, circuit design, biological modelling, programming robots, statistical testing. Used genetic engineering and modelling to design, build, and test engineering approaches for CBD synthesis in yeast.',
+  },
+  {
+    degree: 'BSc (Hons) Biological Sciences — 2:1',
+    institution: 'Imperial College London',
+    detail: '1st in 3rd Year project and dissertation — examiner called it the "best dissertation I\'ve read". Awarded "Outstanding" in problem-solving/communication. 1st in all presentations. CRISPR gene-editing dissertation.',
+  },
+  {
+    degree: 'A-Levels',
+    institution: '',
+    detail: 'Biology A*, Chemistry A, Maths A. AS-Levels: Maths A, Physics A.',
+  },
 ]
 
 function App() {
@@ -124,18 +193,18 @@ function App() {
           <div className="grid sm:grid-cols-2 gap-8">
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I'm a London-based founder and builder with a background in life sciences and pharma strategy. Imperial College London trained, <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">published researcher</a>, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients.
+                I'm a London-based founder and builder with a background in life sciences and pharma strategy. Imperial College London and Cambridge trained, <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">published researcher</a>, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients.
               </p>
               <p>
-                Now I build. Real-time news intelligence platforms, pharmaceutical data products, and consumer brands — from zero to live, across the full stack.
+                I co-founded a transdermal technology startup, negotiated a GMP manufacturing joint venture, led IP strategy through patent filings, and built investor data rooms that generated strong inbound interest.
               </p>
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I move fast and ship faster. If something needs building, I'll figure out how. If it needs shipping, I'll get it live. If it needs selling, I'll be on the calls.
+                Now I build full-stack. Real-time news intelligence platforms, pharmaceutical data products, and consumer brands — from zero to live. I move fast and ship faster.
               </p>
               <p>
-                Right now I'm running multiple ventures simultaneously — because one thing at a time was never really my style.
+                Athletics captain who led 200+ athletes. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I build teams and communities around them.
               </p>
             </div>
           </div>
@@ -149,29 +218,33 @@ function App() {
           <h3 className="text-3xl sm:text-4xl font-bold mb-12">What I've built</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {PROJECTS.map((project) => (
-              <a
+              <div
                 key={project.name}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-navy-light border border-border rounded-xl p-6 hover:border-text-mid transition-all hover:-translate-y-1"
+                className="group bg-navy-light border border-border rounded-xl p-6 hover:border-text-mid transition-all hover:-translate-y-1"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: project.accent }}
-                  />
-                  <h4 className="text-xl font-semibold group-hover:text-white transition-colors">
-                    {project.name}
-                  </h4>
-                  <svg className="w-4 h-4 text-text-mid ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </div>
-                <p className="text-text-light text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: project.accent }}
+                    />
+                    <h4 className="text-xl font-semibold group-hover:text-white transition-colors">
+                      {project.name}
+                    </h4>
+                    <svg className="w-4 h-4 text-text-mid ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </div>
+                  <p className="text-text-light text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                </a>
+                <div className="flex flex-wrap gap-2 mb-3">
                   {project.tags.map(tag => (
                     <span
                       key={tag}
@@ -181,14 +254,24 @@ function App() {
                     </span>
                   ))}
                 </div>
-              </a>
+                {'deckUrl' in project && (
+                  <a
+                    href={(project as { deckUrl: string }).deckUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-teal hover:underline font-mono"
+                  >
+                    View pitch deck &rarr;
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Skills */}
-      <section id="experience" className="py-24 px-6">
+      <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Skills</h2>
           <h3 className="text-3xl sm:text-4xl font-bold mb-12">What I work with</h3>
@@ -211,59 +294,16 @@ function App() {
       </section>
 
       {/* Experience Timeline */}
-      <section className="py-24 px-6">
+      <section id="experience" className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Experience</h2>
           <h3 className="text-3xl sm:text-4xl font-bold mb-12">Where I've been</h3>
           <div className="space-y-8">
-            {[
-              {
-                period: '2026 — Present',
-                role: 'Founder & Builder',
-                company: 'Self-employed',
-                description: 'Building GlobalNewly (real-time news intelligence), Drug Atlas (pharma data platform), and Glovea (consumer brand) simultaneously. Full-stack product development, data pipelines, AI integration, and commercial strategy.',
-              },
-              {
-                period: 'Feb — Mar 2026',
-                role: 'Demo Creation & Software Research',
-                company: 'Opvia (trading as Seal)',
-                description: 'Contract engagement creating product demos and conducting software research for the sales team.',
-              },
-              {
-                period: '2024 — 2026',
-                role: 'Founder',
-                company: 'Cooden Cosmetics (Glovea)',
-                description: 'Developing a warming cream for cold hands and feet. Led commercial strategy through extensive due diligence — primary/secondary market research, IP analysis, regulatory affairs strategy, demand study, competitive landscaping, and pricing.',
-              },
-              {
-                period: '2023 — 2024',
-                role: 'Associate Consultant II → Associate Consultant I',
-                company: 'Putnam Associates',
-                description: 'Strategy consultant serving Fortune 500 biopharma, biotech, and PE/VC clients. Conducted demand studies, revenue forecast models, go/no-go assessments, regulatory & reimbursement plans, brand strategies, and sales force strategies across medical devices, blockbuster drugs, gene therapies, and COVID-19 vaccines.',
-              },
-              {
-                period: '2023',
-                role: 'Strategy Consultant (Pro Bono)',
-                company: '180 Degrees Consulting',
-                description: 'Provided marketing strategy consulting to a leading UK non-profit — consumer segmentation, ROI prediction, and go-to-market plan used to launch their app.',
-              },
-              {
-                period: '2022',
-                role: 'Business Strategy Intern',
-                company: 'Multus Media (Clean Meat Biotech)',
-                description: 'Designed and conducted market research for competitors, consumers, and trends. Findings led the CEO to modify the company\'s pipeline to address new markets.',
-              },
-              {
-                period: 'Summer',
-                role: 'Research Intern — Malaria Lab / CRISPR Dissertation',
-                company: 'Imperial College London (Gates Foundation funded)',
-                description: 'Analysed qualitative data to design approaches for increasing specificity in genetically editing mosquitoes. Published researcher — co-authored work on a novel enzyme (ACS Synthetic Biology). CRISPR gene-editing dissertation.',
-              },
-            ].map((item, i) => (
+            {EXPERIENCE.map((item, i) => (
               <div key={i} className="flex gap-6 group">
                 <div className="flex flex-col items-center">
                   <div className="w-3 h-3 rounded-full bg-accent mt-1.5 shrink-0" />
-                  {i < 6 && <div className="w-px flex-1 bg-border mt-2" />}
+                  {i < EXPERIENCE.length - 1 && <div className="w-px flex-1 bg-border mt-2" />}
                 </div>
                 <div className="pb-2">
                   <p className="text-xs font-mono text-text-mid mb-1">{item.period}</p>
@@ -273,6 +313,62 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section id="education" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Education</h2>
+          <h3 className="text-3xl sm:text-4xl font-bold mb-12">Where I studied</h3>
+          <div className="space-y-6">
+            {EDUCATION.map((item, i) => (
+              <div key={i} className="bg-navy-light border border-border rounded-xl p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-2">
+                  <h4 className="text-lg font-semibold">{item.degree}</h4>
+                  {item.institution && (
+                    <span className="text-teal text-sm">{item.institution}</span>
+                  )}
+                </div>
+                <p className="text-text-light text-sm leading-relaxed">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Published Research callout */}
+          <div className="mt-8 bg-navy-card border border-teal/30 rounded-xl p-6">
+            <h4 className="text-sm font-semibold text-teal mb-2">Published Research</h4>
+            <p className="text-text-light text-sm leading-relaxed mb-3">
+              Co-authored a paper on a novel enzyme published in ACS Synthetic Biology — one of the leading journals in the field.
+            </p>
+            <a
+              href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal text-sm font-mono hover:underline"
+            >
+              Read the paper &rarr;
+            </a>
+          </div>
+
+          {/* Leadership callout */}
+          <div className="mt-6 bg-navy-card border border-gold/30 rounded-xl p-6">
+            <h4 className="text-sm font-semibold text-gold mb-3">Leadership</h4>
+            <ul className="space-y-2">
+              <li className="text-text-light text-sm flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+                Athletics Captain — led 200+ athletes, record membership, managed &pound;10K+ budget
+              </li>
+              <li className="text-text-light text-sm flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+                Political Society President &amp; Secretary — organised events for cabinet ministers, chaired debates, wrote for university newspaper
+              </li>
+              <li className="text-text-light text-sm flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+                Chaired and organised an emerging viral disease conference — 130+ attendees, 6 speakers
+              </li>
+            </ul>
           </div>
         </div>
       </section>
