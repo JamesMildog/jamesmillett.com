@@ -29,7 +29,7 @@ const PROJECTS = [
     description: 'Transdermal warming cream for hands and feet. Co-founded with GMP manufacturing JV. Patent filings, regulatory workstreams, investor data room, and full commercial strategy. Awarded Homerton Changemakers Prize. Selected for Discovery Spark Programme.',
     tags: ['Founder CEO', 'GMP Manufacturing', 'IP Strategy', 'Regulatory', 'Brand'],
     accent: '#E8734A',
-    deckUrl: 'https://canva.link/nibh5zrqgrh1kyg',
+    deckUrl: '/deck.pdf',
   },
 ]
 
