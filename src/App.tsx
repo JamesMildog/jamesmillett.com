@@ -13,16 +13,9 @@ const PROJECTS = [
   {
     name: 'GlobalNewly',
     url: 'https://www.globalnewly.com',
-    description: 'Real-time global news intelligence map. Aggregates thousands of sources worldwide, clusters breaking stories by location, and delivers AI-powered briefings — rivalling Google News in coverage.',
+    description: 'Real-time global news intelligence map. Aggregates hundreds of RSS feeds across 50+ countries, clusters breaking stories by location, and delivers AI-powered briefings.',
     tags: ['React', 'TypeScript', 'Supabase', 'Leaflet', 'AI/NLP', 'Edge Functions'],
     accent: '#2EC4B6',
-  },
-  {
-    name: 'Drug Atlas',
-    url: 'https://drugslandscape.com',
-    description: 'Pharmaceutical intelligence platform mapping the global drug development landscape. Tracks 5,000+ compounds across clinical trials, regulatory approvals, and competitive dynamics.',
-    tags: ['React', 'TypeScript', 'Supabase', 'Python', 'Data Pipelines', 'AI'],
-    accent: '#4A90D9',
   },
   {
     name: 'Glovea (formerly DermaFlo)',
@@ -35,45 +28,33 @@ const PROJECTS = [
 ]
 
 const SKILLS = [
-  { category: 'Engineering', items: ['TypeScript', 'React', 'Python', 'Node.js', 'Tailwind CSS', 'Vite', 'Supabase', 'PostgreSQL'] },
-  { category: 'Data & AI', items: ['LLM Integration', 'NLP Pipelines', 'Data Pipelines', 'Web Scraping', 'Biological Modelling', 'Statistical Testing', 'Revenue Modelling'] },
   { category: 'Pharma & Life Sciences', items: ['Market Access', 'Reimbursement Strategy', 'Clinical Trial Design', 'Competitive Landscaping', 'Regulatory Affairs', 'IP Strategy', 'GMP Manufacturing'] },
   { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Brand Strategy', 'Sales Force Strategy', 'Due Diligence', 'Demand Studies', 'Financial Modelling', 'Pitch Decks'] },
+  { category: 'Research & Analysis', items: ['Primary & Secondary Research', 'Survey Design & Analysis', 'Biological Modelling', 'Statistical Testing', 'Revenue Modelling', 'Market Sizing'] },
+  { category: 'Technical', items: ['Python (scripting)', 'Data Analysis', 'Quantitative Modelling', 'Genetic Engineering', 'Lab Techniques'] },
 ]
 
 const EXPERIENCE = [
   {
-    period: '2026 — Present',
-    role: 'Founder & Builder',
-    company: 'Self-employed',
-    description: 'Building GlobalNewly (real-time news intelligence), Drug Atlas (pharma data platform), and Glovea (consumer brand) simultaneously. Full-stack product development, data pipelines, AI integration, and commercial strategy.',
-  },
-  {
-    period: 'Feb — Mar 2026',
-    role: 'Demo Creation & Software Research',
-    company: 'Opvia (trading as Seal)',
-    description: 'Contract engagement creating product demos and conducting software research for the sales team.',
-  },
-  {
-    period: '2024 — 2026',
+    period: '2024 — Present',
     role: 'Co-founder & CEO',
-    company: 'DermaFlo / Cooden Cosmetics (Glovea)',
-    description: 'End-to-end commercial and technical development of transdermal technologies spanning cosmetic formulations, medical devices, and novel APIs. Negotiated and structured a JV with a GMP manufacturer. Led IP strategy including patent filings, trademarks, and brand protection. Built the business plan, financial models, and investor data room. Managed transition from R&D to commercial readiness across legal, regulatory, manufacturing, and marketing.',
+    company: 'DermaFlo / Cooden Cosmetics',
+    description: 'End-to-end commercial and technical development of transdermal technologies spanning cosmetic formulations, medical devices, and novel APIs. Negotiated and structured a JV with a GMP manufacturer. Led IP strategy including patent filings, trademarks, and brand protection. Built the business plan, financial models, and investor data room. Managed transition from R&D to commercial readiness across legal, regulatory, manufacturing, and marketing. Currently exploring new opportunities.',
   },
   {
-    period: '2023 — 2024',
+    period: 'Apr 2022 — Oct 2023',
     role: 'Associate Consultant II & I (19 months)',
     company: 'Putnam Associates',
-    description: 'Strategy consultant to Fortune 500 biopharma, biotech, and PE/VC clients across 10+ engagements. Built long-range revenue forecast models from primary demand studies. Delivered go/no-go investment assessments for early-stage pharmaceutical assets. Developed regulatory, market access, and reimbursement strategies for indication expansions. Informed brand strategy for major product launches. Created sales force strategies for advanced therapies. Produced regulatory and distribution frameworks for global vaccine rollouts.',
+    description: 'Strategy consultant to Fortune 500 biopharma, biotech, and PE/VC clients. Built long-range revenue forecast models from primary demand studies. Delivered go/no-go investment assessments for early-stage pharmaceutical assets. Developed regulatory, market access, and reimbursement strategies for indication expansions. Informed brand strategy for major product launches. Created sales force strategies for advanced therapies. Produced regulatory and distribution frameworks for global vaccine rollouts.',
   },
   {
-    period: '2023',
+    period: '2022',
     role: 'Strategy Consultant (Pro Bono)',
     company: '180 Degrees Consulting',
     description: 'Marketing strategy consulting for a leading UK non-profit — consumer segmentation, ROI prediction, and go-to-market plan used to launch their app.',
   },
   {
-    period: '2022',
+    period: '2021',
     role: 'Business Strategy Intern',
     company: 'Multus Media (Clean Meat Biotech)',
     description: 'Designed and conducted market research for competitors, consumers, and trends. Findings communicated directly to the CEO, leading the company to modify its pipeline to address new markets.',
@@ -82,7 +63,7 @@ const EXPERIENCE = [
     period: 'Summer',
     role: 'Research Intern — Malaria Genetic Engineering Lab',
     company: 'Imperial College London (Gates Foundation funded)',
-    description: 'Designed an approach to increase specificity when genetically editing mosquitoes. Constructed the design and quantified statistical significance vs. the previous approach. Collected, analysed, and presented data to peers and field experts. Published researcher — co-authored work on a novel enzyme (ACS Synthetic Biology).',
+    description: 'Designed an approach to increase specificity when genetically editing mosquitoes. Constructed the design and quantified statistical significance vs. the previous approach. Collected, analysed, and presented data to peers and field experts.',
   },
 ]
 
@@ -90,7 +71,7 @@ const EDUCATION = [
   {
     degree: 'PGCE',
     institution: 'University of Cambridge',
-    detail: 'Completed alongside DermaFlo to develop structured leadership and communication skills for early-stage company growth.',
+    detail: '',
   },
   {
     degree: 'MRes Systems & Synthetic Biology — Merit',
@@ -195,7 +176,7 @@ function ContactSection() {
             ) : (
               <form onSubmit={handleCvRequest} className="space-y-4">
                 <p className="text-text-light text-sm leading-relaxed">
-                  Enter your email and I'll send you my full CV with detailed experience across pharma strategy, startup building, and engineering.
+                  Enter your email and I'll send you my full CV with detailed experience across pharma strategy, startup building, and research.
                 </p>
                 <input
                   type="email"
@@ -235,15 +216,6 @@ function ContactSection() {
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
-          </a>
-          <a
-            href="/deck.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all text-sm"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-            Pitch Deck
           </a>
         </div>
       </div>
@@ -309,22 +281,14 @@ function App() {
             James Millett
           </h1>
           <p className="text-xl sm:text-2xl text-text-light leading-relaxed mb-8 animate-fade-in-up animate-delay-200">
-            I build things. Products, platforms, brands — from zero to live.
+            I don't just have ideas — I patent them, build them, and ship them.
             <br className="hidden sm:block" />
-            <span className="text-teal">Scientist</span> &middot; <span className="text-blue">Strategist</span> &middot; <span className="text-gold">Builder</span>
+            <span className="text-teal">Scientist</span> &middot; <span className="text-blue">Strategist</span> &middot; <span className="text-gold">Founder</span>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
             <a
-              href="/deck.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105"
-            >
-              View Pitch Deck
-            </a>
-            <a
               href="#projects"
-              className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
+              className="px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105"
             >
               See my work
             </a>
@@ -351,15 +315,15 @@ function App() {
           <div className="grid sm:grid-cols-2 gap-8">
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I'm a London-based founder and builder with a background in life sciences and pharma strategy. Imperial College London and Cambridge trained, <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">published researcher</a>, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients.
+                I'm a London-based founder with a background in life sciences and pharma strategy. Imperial College London and Cambridge trained, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients for 19 months.
               </p>
               <p>
-                I co-founded a transdermal technology startup, negotiated a GMP manufacturing joint venture, led IP strategy through patent filings, and built investor data rooms that generated strong inbound interest.
+                I co-founded a transdermal technology startup, negotiated a GMP manufacturing joint venture, led IP strategy through <a href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">patent filings</a>, and built investor data rooms that generated strong inbound interest.
               </p>
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                Now I build full-stack. Real-time news intelligence platforms, pharmaceutical data products, and consumer brands — from zero to live. I move fast and ship faster.
+                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">contributed to published research</a> on novel enzymes, built news intelligence platforms, and launched consumer brands — from zero to live.
               </p>
               <p>
                 Athletics captain who led 200+ athletes. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I build teams and communities around them.
@@ -489,17 +453,19 @@ function App() {
                     <span className="text-teal text-sm">{item.institution}</span>
                   )}
                 </div>
-                <p className="text-text-light text-sm leading-relaxed">{item.detail}</p>
+                {item.detail && (
+                  <p className="text-text-light text-sm leading-relaxed">{item.detail}</p>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Published Research & Patent */}
-          <div className="mt-8 grid sm:grid-cols-2 gap-6">
+          {/* Achievements */}
+          <div className="mt-8 grid sm:grid-cols-3 gap-6">
             <div className="bg-navy-card border border-teal/30 rounded-xl p-6">
               <h4 className="text-sm font-semibold text-teal mb-2">Published Research</h4>
               <p className="text-text-light text-sm leading-relaxed mb-3">
-                Co-authored a paper on a novel enzyme published in ACS Synthetic Biology — one of the leading journals in the field.
+                Contributed to a paper on novel enzymes published in ACS Synthetic Biology (data curation).
               </p>
               <a
                 href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790"
@@ -513,7 +479,7 @@ function App() {
             <div className="bg-navy-card border border-accent/30 rounded-xl p-6">
               <h4 className="text-sm font-semibold text-accent mb-2">Patent Filing</h4>
               <p className="text-text-light text-sm leading-relaxed mb-3">
-                UK patent application for transdermal technology developed at Cooden Cosmetics (DermaFlo / Glovea).
+                UK patent application for transdermal technology developed at Cooden Cosmetics.
               </p>
               <a
                 href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1"
@@ -522,6 +488,20 @@ function App() {
                 className="text-accent text-sm font-mono hover:underline"
               >
                 View patent GB2513248.1 &rarr;
+              </a>
+            </div>
+            <div className="bg-navy-card border border-gold/30 rounded-xl p-6">
+              <h4 className="text-sm font-semibold text-gold mb-2">Pitch Deck</h4>
+              <p className="text-text-light text-sm leading-relaxed mb-3">
+                Pre-seed pitch deck for DermaFlo — transdermal technology venture with GMP manufacturing JV.
+              </p>
+              <a
+                href="/deck.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold text-sm font-mono hover:underline"
+              >
+                View pitch deck &rarr;
               </a>
             </div>
           </div>
