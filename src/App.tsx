@@ -163,10 +163,18 @@ function App() {
             <br className="hidden sm:block" />
             <span className="text-teal">Scientist</span> &middot; <span className="text-blue">Strategist</span> &middot; <span className="text-gold">Builder</span>
           </p>
-          <div className="flex items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
+          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
+            <a
+              href="/deck.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105"
+            >
+              View Pitch Deck
+            </a>
             <a
               href="#projects"
-              className="px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105"
+              className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
             >
               See my work
             </a>
