@@ -323,7 +323,7 @@ function App() {
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">contributed to published research</a> on novel enzymes, built news intelligence platforms, and launched consumer brands — from zero to live.
+                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">contributed to published research on a novel enzyme</a> on novel enzymes, built news intelligence platforms, and launched consumer brands — from zero to live.
               </p>
               <p>
                 Athletics captain who led 200+ athletes. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I build teams and communities around them.
@@ -465,7 +465,7 @@ function App() {
             <div className="bg-navy-card border border-teal/30 rounded-xl p-6">
               <h4 className="text-sm font-semibold text-teal mb-2">Published Research</h4>
               <p className="text-text-light text-sm leading-relaxed mb-3">
-                Contributed to a paper on novel enzymes published in ACS Synthetic Biology (data curation).
+                Contributed to a paper on a novel enzyme published in ACS Synthetic Biology (data curation).
               </p>
               <a
                 href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790"
