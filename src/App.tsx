@@ -64,7 +64,7 @@ const EXPERIENCE = [
     period: '2023 — 2024',
     role: 'Associate Consultant II & I (19 months)',
     company: 'Putnam Associates',
-    description: 'Strategy consultant serving Fortune 500 biopharma, biotech, and PE/VC clients. Demand studies feeding revenue forecast models. Go/no-go assessments covering reimbursement, clinical trial design, competitive landscape, and market size. Regulatory, market access, and reimbursement plans. Brand strategy for blockbuster products. Sales force strategy for gene therapies. Regulatory and distribution planning for COVID-19 vaccines.',
+    description: 'Strategy consultant to Fortune 500 biopharma, biotech, and PE/VC clients across 10+ engagements. Built long-range revenue forecast models from primary demand studies. Delivered go/no-go investment assessments for early-stage pharmaceutical assets. Developed regulatory, market access, and reimbursement strategies for indication expansions. Informed brand strategy for major product launches. Created sales force strategies for advanced therapies. Produced regulatory and distribution frameworks for global vaccine rollouts.',
   },
   {
     period: '2023',
@@ -112,6 +112,8 @@ const EDUCATION = [
 function ContactSection() {
   const [revealed, setRevealed] = useState(false)
   const [answer, setAnswer] = useState('')
+  const [cvEmail, setCvEmail] = useState('')
+  const [cvSent, setCvSent] = useState(false)
   const correct = 'james.h.millett@gmail.com'
   const riddle = `".".join(["com", "h.millett@gmail", "james"][::-1])`
 
@@ -120,65 +122,128 @@ function ContactSection() {
     setRevealed(true)
   }
 
+  const handleCvRequest = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (cvEmail) {
+      window.open(`mailto:${correct}?subject=${encodeURIComponent('CV Request from ' + cvEmail)}&body=${encodeURIComponent('Hi James,\n\nI\'d like to request your CV.\n\nThanks,\n' + cvEmail)}`)
+      setCvSent(true)
+    }
+  }
+
   return (
     <section id="contact" className="py-24 px-6">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Contact</h2>
-        <h3 className="text-3xl sm:text-4xl font-bold mb-6">Let's talk</h3>
-        <p className="text-text-light leading-relaxed mb-8">
-          Whether you've got a project, a contract opportunity, or just want to connect — solve the riddle to find my email.
-        </p>
-
-        {/* Python riddle */}
-        <div className="bg-navy-light border border-border rounded-xl p-6 text-left mb-6 max-w-lg mx-auto">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-3 h-3 rounded-full bg-accent/60" />
-            <div className="w-3 h-3 rounded-full bg-gold/60" />
-            <div className="w-3 h-3 rounded-full bg-teal/60" />
-            <span className="text-text-mid text-xs font-mono ml-2">contact.py</span>
-          </div>
-          <pre className="font-mono text-sm leading-relaxed overflow-x-auto">
-            <span className="text-text-mid">{'>>>'}</span>{' '}
-            <span className="text-gold">{riddle}</span>
-          </pre>
-          {revealed ? (
-            <div className="mt-3">
-              <pre className="font-mono text-sm">
-                <span className="text-teal">'{answer}'</span>
-              </pre>
-              <a
-                href={`mailto:${correct}`}
-                className="inline-block mt-4 px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105 text-sm"
-              >
-                Send me an email
-              </a>
-            </div>
-          ) : (
-            <button
-              onClick={handleRun}
-              className="mt-4 px-4 py-2 bg-teal/20 text-teal border border-teal/30 rounded-lg font-mono text-sm hover:bg-teal/30 transition-all cursor-pointer"
-            >
-              &#9654; Run
-            </button>
-          )}
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Contact</h2>
+          <h3 className="text-3xl sm:text-4xl font-bold mb-4">Let's talk</h3>
+          <p className="text-text-light leading-relaxed">
+            Solve the riddle to find my email, or request my CV below.
+          </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <div className="grid sm:grid-cols-2 gap-6">
+          {/* Python riddle */}
+          <div className="bg-navy-light border border-border rounded-xl p-6 text-left">
+            <h4 className="text-sm font-semibold text-teal mb-4">Find my email</h4>
+            <div className="bg-navy rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-accent/60" />
+                <div className="w-2.5 h-2.5 rounded-full bg-gold/60" />
+                <div className="w-2.5 h-2.5 rounded-full bg-teal/60" />
+                <span className="text-text-mid text-[10px] font-mono ml-2">contact.py</span>
+              </div>
+              <pre className="font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+                <span className="text-text-mid">{'>>>'}</span>{' '}
+                <span className="text-gold">{riddle}</span>
+              </pre>
+              {revealed ? (
+                <div className="mt-3">
+                  <pre className="font-mono text-xs sm:text-sm">
+                    <span className="text-teal">'{answer}'</span>
+                  </pre>
+                  <a
+                    href={`mailto:${correct}`}
+                    className="inline-block mt-4 px-5 py-2.5 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105 text-sm"
+                  >
+                    Send me an email
+                  </a>
+                </div>
+              ) : (
+                <button
+                  onClick={handleRun}
+                  className="mt-4 px-4 py-2 bg-teal/20 text-teal border border-teal/30 rounded-lg font-mono text-sm hover:bg-teal/30 transition-all cursor-pointer"
+                >
+                  &#9654; Run
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* CV Request */}
+          <div className="bg-navy-light border border-border rounded-xl p-6">
+            <h4 className="text-sm font-semibold text-gold mb-4">Request my CV</h4>
+            {cvSent ? (
+              <div className="flex flex-col items-center justify-center h-full py-8">
+                <div className="w-12 h-12 rounded-full bg-teal/20 flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-white font-medium mb-1">Request opened</p>
+                <p className="text-text-light text-sm text-center">Complete the email in your mail client and I'll send my CV over.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleCvRequest} className="space-y-4">
+                <p className="text-text-light text-sm leading-relaxed">
+                  Enter your email and I'll send you my full CV with detailed experience across pharma strategy, startup building, and engineering.
+                </p>
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={cvEmail}
+                  onChange={(e) => setCvEmail(e.target.value)}
+                  className="w-full px-4 py-3 bg-navy border border-border rounded-lg text-white placeholder-text-mid text-sm focus:outline-none focus:border-teal transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 bg-gold text-navy font-semibold rounded-lg hover:bg-gold/90 transition-all hover:scale-[1.02] text-sm cursor-pointer"
+                >
+                  Request CV
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        {/* Social links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
           <a
             href="https://github.com/JamesMildog"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
+            className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all text-sm"
           >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             GitHub
           </a>
           <a
             href="https://www.linkedin.com/in/jhmillett/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
+            className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all text-sm"
           >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
+          </a>
+          <a
+            href="/deck.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all text-sm"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            Pitch Deck
           </a>
         </div>
       </div>
