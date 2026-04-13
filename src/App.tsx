@@ -25,6 +25,14 @@ const PROJECTS = [
     accent: '#E8734A',
     deckUrl: '/deck.pdf',
   },
+  {
+    name: 'New Project — Coming Soon',
+    url: '#contact',
+    description: 'Something big is in the works. Request access to the pitch deck and demo.',
+    tags: ['Stealth', 'Request Access'],
+    accent: '#F4A261',
+    isTeaser: true,
+  },
 ]
 
 const SKILLS = [
@@ -339,55 +347,67 @@ function App() {
           <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Projects</h2>
           <h3 className="text-3xl sm:text-4xl font-bold mb-12">What I've built</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            {PROJECTS.map((project) => (
-              <div
-                key={project.name}
-                className="group bg-navy-light border border-border rounded-xl p-6 hover:border-text-mid transition-all hover:-translate-y-1"
-              >
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
+            {PROJECTS.map((project) => {
+              const isTeaser = 'isTeaser' in project
+              return (
+                <div
+                  key={project.name}
+                  className={`group bg-navy-light border rounded-xl p-6 transition-all hover:-translate-y-1 ${isTeaser ? 'border-gold/40 border-dashed' : 'border-border hover:border-text-mid'}`}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="w-3 h-3 rounded-full"
-                      style={{ backgroundColor: project.accent }}
-                    />
-                    <h4 className="text-xl font-semibold group-hover:text-white transition-colors">
-                      {project.name}
-                    </h4>
-                    <svg className="w-4 h-4 text-text-mid ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </div>
-                  <p className="text-text-light text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-                </a>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="text-xs font-mono px-2 py-1 rounded-md bg-navy text-text-mid"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                {'deckUrl' in project && (
                   <a
-                    href={(project as { deckUrl: string }).deckUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-teal hover:underline font-mono"
+                    href={project.url}
+                    {...(!isTeaser ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="block"
                   >
-                    View pitch deck &rarr;
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className={`w-3 h-3 rounded-full ${isTeaser ? 'animate-pulse' : ''}`}
+                        style={{ backgroundColor: project.accent }}
+                      />
+                      <h4 className="text-xl font-semibold group-hover:text-white transition-colors">
+                        {project.name}
+                      </h4>
+                      {!isTeaser && (
+                        <svg className="w-4 h-4 text-text-mid ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                      )}
+                    </div>
+                    <p className="text-text-light text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
                   </a>
-                )}
-              </div>
-            ))}
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tags.map(tag => (
+                      <span
+                        key={tag}
+                        className={`text-xs font-mono px-2 py-1 rounded-md ${tag === 'Request Access' ? 'bg-gold/20 text-gold' : 'bg-navy text-text-mid'}`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {'deckUrl' in project && (
+                    <a
+                      href={(project as { deckUrl: string }).deckUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-teal hover:underline font-mono"
+                    >
+                      View pitch deck &rarr;
+                    </a>
+                  )}
+                  {isTeaser && (
+                    <a
+                      href="#contact"
+                      className="text-xs text-gold hover:underline font-mono"
+                    >
+                      Request pitch &amp; demo access &rarr;
+                    </a>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
