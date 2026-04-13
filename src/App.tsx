@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 
+const PITCH_DEMO_MAILTO = `mailto:james.h.millett@gmail.com?subject=${encodeURIComponent('Pitch & demo access request')}&body=${encodeURIComponent("Hi James,\n\nI'd like to request access to the pitch deck and demo.\n\n")}`
+
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
@@ -27,7 +29,7 @@ const PROJECTS = [
   },
   {
     name: 'New Project — Coming Soon',
-    url: '#contact',
+    url: PITCH_DEMO_MAILTO,
     description: 'Something big is in the works. Request access to the pitch deck and demo.',
     tags: ['Stealth', 'Request Access'],
     accent: '#F4A261',
@@ -101,22 +103,12 @@ const EDUCATION = [
 function ContactSection() {
   const [revealed, setRevealed] = useState(false)
   const [answer, setAnswer] = useState('')
-  const [cvEmail, setCvEmail] = useState('')
-  const [cvSent, setCvSent] = useState(false)
   const correct = 'james.h.millett@gmail.com'
   const riddle = `".".join(["com", "h.millett@gmail", "james"][::-1])`
 
   const handleRun = () => {
     setAnswer(correct)
     setRevealed(true)
-  }
-
-  const handleCvRequest = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (cvEmail) {
-      window.open(`mailto:${correct}?subject=${encodeURIComponent('CV Request from ' + cvEmail)}&body=${encodeURIComponent('Hi James,\n\nI\'d like to request your CV.\n\nThanks,\n' + cvEmail)}`)
-      setCvSent(true)
-    }
   }
 
   return (
@@ -126,12 +118,11 @@ function ContactSection() {
           <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Contact</h2>
           <h3 className="text-3xl sm:text-4xl font-bold mb-4">Let's talk</h3>
           <p className="text-text-light leading-relaxed">
-            Solve the riddle to find my email, or request my CV below.
+            Solve the riddle to find my email.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          {/* Python riddle */}
+        <div className="max-w-xl mx-auto">
           <div className="bg-navy-light border border-border rounded-xl p-6 text-left">
             <h4 className="text-sm font-semibold text-teal mb-4">Find my email</h4>
             <div className="bg-navy rounded-lg p-4">
@@ -166,42 +157,6 @@ function ContactSection() {
                 </button>
               )}
             </div>
-          </div>
-
-          {/* CV Request */}
-          <div className="bg-navy-light border border-border rounded-xl p-6">
-            <h4 className="text-sm font-semibold text-gold mb-4">Request my CV</h4>
-            {cvSent ? (
-              <div className="flex flex-col items-center justify-center h-full py-8">
-                <div className="w-12 h-12 rounded-full bg-teal/20 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p className="text-white font-medium mb-1">Request opened</p>
-                <p className="text-text-light text-sm text-center">Complete the email in your mail client and I'll send my CV over.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleCvRequest} className="space-y-4">
-                <p className="text-text-light text-sm leading-relaxed">
-                  Enter your email and I'll send you my full CV with detailed experience across pharma strategy, startup building, and research.
-                </p>
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={cvEmail}
-                  onChange={(e) => setCvEmail(e.target.value)}
-                  className="w-full px-4 py-3 bg-navy border border-border rounded-lg text-white placeholder-text-mid text-sm focus:outline-none focus:border-teal transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3 bg-gold text-navy font-semibold rounded-lg hover:bg-gold/90 transition-all hover:scale-[1.02] text-sm cursor-pointer"
-                >
-                  Request CV
-                </button>
-              </form>
-            )}
           </div>
         </div>
 
@@ -331,7 +286,7 @@ function App() {
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
               <p>
-                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">contributed to published research on a novel enzyme</a> on novel enzymes, built news intelligence platforms, and launched consumer brands — from zero to live.
+                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">contributed to published research on a novel enzyme</a>, built news intelligence platforms, and launched consumer brands — from zero to live.
               </p>
               <p>
                 Athletics captain who led 200+ athletes. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I build teams and communities around them.
@@ -399,7 +354,7 @@ function App() {
                   )}
                   {isTeaser && (
                     <a
-                      href="#contact"
+                      href={PITCH_DEMO_MAILTO}
                       className="text-xs text-gold hover:underline font-mono"
                     >
                       Request pitch &amp; demo access &rarr;
