@@ -1,6 +1,24 @@
 import { useState } from 'react'
 import './App.css'
 
+const PATENT_URL = 'https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1'
+
+/** Replaces the first "filed a patent" in text with a link to GB2513248.1 */
+function TextWithPatentLink({ text, className = 'text-accent hover:underline' }: { text: string; className?: string }) {
+  const needle = 'filed a patent'
+  const idx = text.indexOf(needle)
+  if (idx === -1) return <>{text}</>
+  return (
+    <>
+      {text.slice(0, idx)}
+      <a href={PATENT_URL} target="_blank" rel="noopener noreferrer" className={className}>
+        filed a patent
+      </a>
+      {text.slice(idx + needle.length)}
+    </>
+  )
+}
+
 const PITCH_DEMO_MAILTO = `mailto:james.h.millett@gmail.com?subject=${encodeURIComponent('Pitch & demo access request')}&body=${encodeURIComponent("Hi James,\n\nI'd like to request access to the pitch deck and demo.\n\n")}`
 
 const NAV_LINKS = [
@@ -282,7 +300,7 @@ function App() {
               </p>
               <p>
                 I co-founded a biotech startup for Raynaud&apos;s disease,{' '}
-                <a href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">filed a patent</a>, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness.
+                <a href={PATENT_URL} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">filed a patent</a>, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness.
               </p>
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
@@ -313,9 +331,9 @@ function App() {
                   <a
                     href={project.url}
                     {...(!isTeaser ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="block"
+                    className="block mb-4"
                   >
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3">
                       <div
                         className={`w-3 h-3 rounded-full ${isTeaser ? 'animate-pulse' : ''}`}
                         style={{ backgroundColor: project.accent }}
@@ -329,10 +347,10 @@ function App() {
                         </svg>
                       )}
                     </div>
-                    <p className="text-text-light text-sm leading-relaxed mb-4">
-                      {project.description}
-                    </p>
                   </a>
+                  <p className="text-text-light text-sm leading-relaxed mb-4">
+                    <TextWithPatentLink text={project.description} />
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.tags.map(tag => (
                       <span
@@ -407,7 +425,9 @@ function App() {
                   <p className="text-xs font-mono text-text-mid mb-1">{item.period}</p>
                   <h4 className="text-lg font-semibold">{item.role}</h4>
                   <p className="text-teal text-sm mb-2">{item.company}</p>
-                  <p className="text-text-light text-sm leading-relaxed">{item.description}</p>
+                  <p className="text-text-light text-sm leading-relaxed">
+                    <TextWithPatentLink text={item.description} />
+                  </p>
                 </div>
               </div>
             ))}
@@ -458,7 +478,7 @@ function App() {
                 UK patent application for transdermal technology developed at Cooden Cosmetics.
               </p>
               <a
-                href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1"
+                href={PATENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent text-sm font-mono hover:underline"
