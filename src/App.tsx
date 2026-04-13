@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 const NAV_LINKS = [
@@ -107,6 +108,83 @@ const EDUCATION = [
     detail: 'Biology A*, Chemistry A, Maths A. AS-Levels: Maths A, Physics A.',
   },
 ]
+
+function ContactSection() {
+  const [revealed, setRevealed] = useState(false)
+  const [answer, setAnswer] = useState('')
+  const correct = 'james.h.millett@gmail.com'
+  const riddle = `".".join(["com", "h.millett@gmail", "james"][::-1])`
+
+  const handleRun = () => {
+    setAnswer(correct)
+    setRevealed(true)
+  }
+
+  return (
+    <section id="contact" className="py-24 px-6">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Contact</h2>
+        <h3 className="text-3xl sm:text-4xl font-bold mb-6">Let's talk</h3>
+        <p className="text-text-light leading-relaxed mb-8">
+          Whether you've got a project, a contract opportunity, or just want to connect — solve the riddle to find my email.
+        </p>
+
+        {/* Python riddle */}
+        <div className="bg-navy-light border border-border rounded-xl p-6 text-left mb-6 max-w-lg mx-auto">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-3 h-3 rounded-full bg-accent/60" />
+            <div className="w-3 h-3 rounded-full bg-gold/60" />
+            <div className="w-3 h-3 rounded-full bg-teal/60" />
+            <span className="text-text-mid text-xs font-mono ml-2">contact.py</span>
+          </div>
+          <pre className="font-mono text-sm leading-relaxed overflow-x-auto">
+            <span className="text-text-mid">{'>>>'}</span>{' '}
+            <span className="text-gold">{riddle}</span>
+          </pre>
+          {revealed ? (
+            <div className="mt-3">
+              <pre className="font-mono text-sm">
+                <span className="text-teal">'{answer}'</span>
+              </pre>
+              <a
+                href={`mailto:${correct}`}
+                className="inline-block mt-4 px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105 text-sm"
+              >
+                Send me an email
+              </a>
+            </div>
+          ) : (
+            <button
+              onClick={handleRun}
+              className="mt-4 px-4 py-2 bg-teal/20 text-teal border border-teal/30 rounded-lg font-mono text-sm hover:bg-teal/30 transition-all cursor-pointer"
+            >
+              &#9654; Run
+            </button>
+          )}
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <a
+            href="https://github.com/JamesMildog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jhmillett/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function App() {
   return (
@@ -382,39 +460,7 @@ function App() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Contact</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-6">Let's talk</h3>
-          <p className="text-text-light leading-relaxed mb-8">
-            Whether you've got a project, a contract opportunity, or just want to connect — I'm always open to a conversation.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="mailto:james.h.millett@gmail.com"
-              className="px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105"
-            >
-              Email me
-            </a>
-            <a
-              href="https://github.com/JamesMildog"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jhmillett/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
+      <ContactSection />
 
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
