@@ -22,7 +22,7 @@ const PROJECTS = [
   {
     name: 'Glovea (formerly DermaFlo)',
     url: 'https://www.glovea.co.uk',
-    description: 'Transdermal warming cream for hands and feet. Co-founded with GMP manufacturing JV. Patent filings, regulatory workstreams, investor data room, and full commercial strategy. Awarded Homerton Changemakers Prize. Selected for Discovery Spark Programme.',
+    description: 'Biotech startup for Raynaud\'s disease: filed a patent, won grant funding, secured investment through a GMP manufacturing JV, ran user trials with 23 sufferers, dual regulatory strategy across cosmetic and medical device pathways — lab bench to commercial readiness.',
     tags: ['Founder CEO', 'GMP Manufacturing', 'IP Strategy', 'Regulatory', 'Brand'],
     accent: '#E8734A',
     deckUrl: '/deck.pdf',
@@ -49,7 +49,7 @@ const EXPERIENCE = [
     period: '2024 — Present',
     role: 'Co-founder & CEO',
     company: 'DermaFlo / Cooden Cosmetics',
-    description: 'End-to-end commercial and technical development of transdermal technologies spanning cosmetic formulations, medical devices, and novel APIs. Negotiated and structured a JV with a GMP manufacturer. Led IP strategy including patent filings, trademarks, and brand protection. Built the business plan, financial models, and investor data room. Managed transition from R&D to commercial readiness across legal, regulatory, manufacturing, and marketing. Currently exploring new opportunities.',
+    description: 'Co-founded a biotech startup for Raynaud\'s disease, filed a patent, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness. Currently exploring new opportunities.',
   },
   {
     period: 'Apr 2022 — Oct 2023',
@@ -281,7 +281,8 @@ function App() {
                 I'm a London-based founder with a background in life sciences and pharma strategy. Imperial College London and Cambridge trained, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients for 19 months.
               </p>
               <p>
-                I co-founded a transdermal technology startup, negotiated a GMP manufacturing joint venture, led IP strategy through <a href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">patent filings</a>, and built investor data rooms that generated strong inbound interest.
+                I co-founded a biotech startup for Raynaud&apos;s disease,{' '}
+                <a href="https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">filed a patent</a>, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness.
               </p>
             </div>
             <div className="space-y-4 text-text-light leading-relaxed">
