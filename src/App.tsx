@@ -295,6 +295,13 @@ function App() {
       {/* Hero */}
       <section className="min-h-screen flex items-center justify-center px-6 pt-16">
         <div className="max-w-3xl text-center">
+          <div className="animate-fade-in-up mb-6">
+            <img
+              src="/headshot.jpg"
+              alt="James Millett"
+              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto object-cover border-4 border-border shadow-lg shadow-accent/10"
+            />
+          </div>
           <div className="animate-fade-in-up">
             <p className="text-accent font-mono text-sm tracking-wider uppercase mb-4">Hi, I'm</p>
           </div>
