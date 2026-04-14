@@ -134,14 +134,34 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 function ContactSection() {
-  const [revealed, setRevealed] = useState(false)
-  const [answer, setAnswer] = useState('')
-  const correct = 'james.h.millett@gmail.com'
-  const riddle = `".".join(["com", "h.millett@gmail", "james"][::-1])`
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  const handleRun = () => {
-    setAnswer(correct)
-    setRevealed(true)
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setSubmitting(true)
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '96a97cf6-5e8b-464a-9f73-2deb18f757a3',
+          name,
+          email,
+          message,
+          subject: `New message from ${name} — jamesmillett.com`,
+          from_name: 'James Millett Website',
+        }),
+      })
+      const data = await res.json()
+      if (data.success) setSubmitted(true)
+    } catch {
+      window.location.href = `mailto:james.h.millett@gmail.com?subject=${encodeURIComponent(`Message from ${name}`)}&body=${encodeURIComponent(message)}`
+    }
+    setSubmitting(false)
   }
 
   return (
@@ -150,42 +170,65 @@ function ContactSection() {
         <div className="text-center mb-14">
           <SectionLabel>Contact</SectionLabel>
           <h3 className="font-serif text-4xl sm:text-5xl font-semibold text-ink mt-4">Let's talk</h3>
-          <p className="text-ink-mid mt-4 text-lg">Solve the riddle to find my email.</p>
+          <p className="text-ink-mid mt-4 text-lg">Have an idea, opportunity, or just want to say hello?</p>
         </div>
 
         <div className="max-w-xl mx-auto">
-          <div className="bg-ink rounded-2xl p-8 shadow-xl">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 rounded-full bg-ember/70" />
-              <div className="w-3 h-3 rounded-full bg-warm-gold/70" />
-              <div className="w-3 h-3 rounded-full bg-sage/70" />
-              <span className="text-white/30 text-[10px] font-mono ml-2">contact.py</span>
+          {submitted ? (
+            <div className="bg-sage/10 border border-sage/20 rounded-2xl p-10 text-center">
+              <svg className="w-12 h-12 text-sage mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-ink font-semibold text-lg">Message sent!</p>
+              <p className="text-ink-mid text-sm mt-2">I'll get back to you as soon as I can.</p>
             </div>
-            <pre className="font-mono text-xs sm:text-sm leading-relaxed text-white/70 overflow-x-auto">
-              <span className="text-white/40">{'>>>'}</span>{' '}
-              <span className="text-warm-gold">{riddle}</span>
-            </pre>
-            {revealed ? (
-              <div className="mt-4">
-                <pre className="font-mono text-xs sm:text-sm">
-                  <span className="text-sage">'{answer}'</span>
-                </pre>
-                <a
-                  href={`mailto:${correct}`}
-                  className="inline-block mt-5 px-6 py-3 bg-ember text-white font-medium rounded-xl hover:bg-ember-light transition-all text-sm"
-                >
-                  Send me an email
-                </a>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-[13px] font-medium text-ink-mid mb-2">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full rounded-xl border border-card-border bg-card px-5 py-3.5 text-ink text-[15px] outline-none focus:border-ember focus:ring-1 focus:ring-ember/30 transition-colors"
+                  placeholder="Your name"
+                />
               </div>
-            ) : (
+              <div>
+                <label htmlFor="email" className="block text-[13px] font-medium text-ink-mid mb-2">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full rounded-xl border border-card-border bg-card px-5 py-3.5 text-ink text-[15px] outline-none focus:border-ember focus:ring-1 focus:ring-ember/30 transition-colors"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-[13px] font-medium text-ink-mid mb-2">Message</label>
+                <textarea
+                  id="message"
+                  required
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full rounded-xl border border-card-border bg-card px-5 py-3.5 text-ink text-[15px] outline-none focus:border-ember focus:ring-1 focus:ring-ember/30 transition-colors resize-none"
+                  placeholder="What's on your mind?"
+                />
+              </div>
               <button
-                onClick={handleRun}
-                className="mt-5 px-5 py-2.5 bg-sage/20 text-sage border border-sage/30 rounded-xl font-mono text-sm hover:bg-sage/30 transition-all cursor-pointer"
+                type="submit"
+                disabled={submitting}
+                className="w-full py-4 bg-ink text-cream font-medium rounded-xl hover:bg-ink-light transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
-                &#9654; Run
+                {submitting ? 'Sending...' : 'Send Message'}
               </button>
-            )}
-          </div>
+            </form>
+          )}
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
