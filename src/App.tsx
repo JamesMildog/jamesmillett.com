@@ -46,6 +46,13 @@ const PROJECTS = [
     deckUrl: '/deck.pdf',
   },
   {
+    name: 'Gigstart',
+    url: 'https://www.gig-start.com',
+    description: 'Designed, built and shipped the full website for Gigstart — a specialist executive search firm placing non-technical leaders into technical companies. AI-powered chatbot, interactive hiring map, case studies, blog with 54 posts, PostHog analytics, and full SEO.',
+    tags: ['React', 'TypeScript', 'Tailwind', 'Vercel', 'OpenAI', 'Web3Forms'],
+    accent: '#e84924',
+  },
+  {
     name: 'New Project — Coming Soon',
     url: PITCH_DEMO_MAILTO,
     description: 'Something big is in the works. Request access to the pitch deck and demo.',
