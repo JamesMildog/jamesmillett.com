@@ -3,8 +3,7 @@ import './App.css'
 
 const PATENT_URL = 'https://www.search-for-intellectual-property.service.gov.uk/GB2513248.1'
 
-/** Replaces the first "filed a patent" in text with a link to GB2513248.1 */
-function TextWithPatentLink({ text, className = 'text-accent hover:underline' }: { text: string; className?: string }) {
+function TextWithPatentLink({ text, className = 'text-ember hover:underline' }: { text: string; className?: string }) {
   const needle = 'filed a patent'
   const idx = text.indexOf(needle)
   if (idx === -1) return <>{text}</>
@@ -35,14 +34,14 @@ const PROJECTS = [
     url: 'https://www.globalnewly.com',
     description: 'Real-time global news intelligence map. Aggregates hundreds of RSS feeds across 50+ countries, clusters breaking stories by location, and delivers AI-powered briefings.',
     tags: ['React', 'TypeScript', 'Supabase', 'Leaflet', 'AI/NLP', 'Edge Functions'],
-    accent: '#2EC4B6',
+    accent: '#4A7C6F',
   },
   {
     name: 'Glovea (formerly DermaFlo)',
     url: 'https://www.glovea.co.uk',
     description: 'Biotech startup for Raynaud\'s disease: filed a patent, won grant funding, secured investment through a GMP manufacturing JV, ran user trials with 23 sufferers, dual regulatory strategy across cosmetic and medical device pathways — lab bench to commercial readiness.',
     tags: ['Founder CEO', 'GMP Manufacturing', 'IP Strategy', 'Regulatory', 'Brand'],
-    accent: '#E8734A',
+    accent: '#C84B31',
     deckUrl: '/deck.pdf',
   },
   {
@@ -50,14 +49,14 @@ const PROJECTS = [
     url: 'https://www.gig-start.com',
     description: 'Designed, built and shipped the full website for Gigstart — a specialist executive search firm placing non-technical leaders into technical companies. AI-powered chatbot, interactive hiring map, case studies, blog with 54 posts, PostHog analytics, and full SEO.',
     tags: ['React', 'TypeScript', 'Tailwind', 'Vercel', 'OpenAI', 'Web3Forms'],
-    accent: '#e84924',
+    accent: '#4A6FA5',
   },
   {
     name: 'New Project — Coming Soon',
     url: PITCH_DEMO_MAILTO,
     description: 'Something big is in the works. Request access to the pitch deck and demo.',
     tags: ['Stealth', 'Request Access'],
-    accent: '#F4A261',
+    accent: '#C59849',
     isTeaser: true,
   },
 ]
@@ -125,6 +124,15 @@ const EDUCATION = [
   },
 ]
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-4 mb-3">
+      <hr className="rule-accent" />
+      <span className="text-[11px] font-semibold tracking-[3px] uppercase text-ember">{children}</span>
+    </div>
+  )
+}
+
 function ContactSection() {
   const [revealed, setRevealed] = useState(false)
   const [answer, setAnswer] = useState('')
@@ -137,61 +145,55 @@ function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-28 px-6">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Contact</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-4">Let's talk</h3>
-          <p className="text-text-light leading-relaxed">
-            Solve the riddle to find my email.
-          </p>
+        <div className="text-center mb-14">
+          <SectionLabel>Contact</SectionLabel>
+          <h3 className="font-serif text-4xl sm:text-5xl font-semibold text-ink mt-4">Let's talk</h3>
+          <p className="text-ink-mid mt-4 text-lg">Solve the riddle to find my email.</p>
         </div>
 
         <div className="max-w-xl mx-auto">
-          <div className="bg-navy-light border border-border rounded-xl p-6 text-left">
-            <h4 className="text-sm font-semibold text-teal mb-4">Find my email</h4>
-            <div className="bg-navy rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-accent/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-gold/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-teal/60" />
-                <span className="text-text-mid text-[10px] font-mono ml-2">contact.py</span>
-              </div>
-              <pre className="font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
-                <span className="text-text-mid">{'>>>'}</span>{' '}
-                <span className="text-gold">{riddle}</span>
-              </pre>
-              {revealed ? (
-                <div className="mt-3">
-                  <pre className="font-mono text-xs sm:text-sm">
-                    <span className="text-teal">'{answer}'</span>
-                  </pre>
-                  <a
-                    href={`mailto:${correct}`}
-                    className="inline-block mt-4 px-5 py-2.5 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105 text-sm"
-                  >
-                    Send me an email
-                  </a>
-                </div>
-              ) : (
-                <button
-                  onClick={handleRun}
-                  className="mt-4 px-4 py-2 bg-teal/20 text-teal border border-teal/30 rounded-lg font-mono text-sm hover:bg-teal/30 transition-all cursor-pointer"
-                >
-                  &#9654; Run
-                </button>
-              )}
+          <div className="bg-ink rounded-2xl p-8 shadow-xl">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-3 h-3 rounded-full bg-ember/70" />
+              <div className="w-3 h-3 rounded-full bg-warm-gold/70" />
+              <div className="w-3 h-3 rounded-full bg-sage/70" />
+              <span className="text-white/30 text-[10px] font-mono ml-2">contact.py</span>
             </div>
+            <pre className="font-mono text-xs sm:text-sm leading-relaxed text-white/70 overflow-x-auto">
+              <span className="text-white/40">{'>>>'}</span>{' '}
+              <span className="text-warm-gold">{riddle}</span>
+            </pre>
+            {revealed ? (
+              <div className="mt-4">
+                <pre className="font-mono text-xs sm:text-sm">
+                  <span className="text-sage">'{answer}'</span>
+                </pre>
+                <a
+                  href={`mailto:${correct}`}
+                  className="inline-block mt-5 px-6 py-3 bg-ember text-white font-medium rounded-xl hover:bg-ember-light transition-all text-sm"
+                >
+                  Send me an email
+                </a>
+              </div>
+            ) : (
+              <button
+                onClick={handleRun}
+                className="mt-5 px-5 py-2.5 bg-sage/20 text-sage border border-sage/30 rounded-xl font-mono text-sm hover:bg-sage/30 transition-all cursor-pointer"
+              >
+                &#9654; Run
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Social links */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
           <a
             href="https://github.com/JamesMildog"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all text-sm"
+            className="flex items-center gap-2.5 px-5 py-3 border border-card-border text-ink-mid rounded-xl hover:border-ink hover:text-ink transition-all text-sm"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             GitHub
@@ -200,7 +202,7 @@ function ContactSection() {
             href="https://www.linkedin.com/in/jhmillett/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all text-sm"
+            className="flex items-center gap-2.5 px-5 py-3 border border-card-border text-ink-mid rounded-xl hover:border-ink hover:text-ink transition-all text-sm"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
@@ -213,19 +215,19 @@ function ContactSection() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-navy text-white">
+    <div className="min-h-screen bg-cream text-ink">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-navy/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/85 backdrop-blur-lg border-b border-card-border/50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="text-lg font-semibold tracking-tight hover:text-accent transition-colors">
-            JM
+          <a href="#" className="font-serif text-xl font-semibold text-ink hover:text-ember transition-colors">
+            James Millett
           </a>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-7">
             {NAV_LINKS.map(link => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-text-light hover:text-white transition-colors hidden sm:block"
+                className="text-[13px] text-ink-mid hover:text-ink transition-colors hidden sm:block tracking-wide"
               >
                 {link.label}
               </a>
@@ -234,85 +236,86 @@ function App() {
               href="https://github.com/JamesMildog"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-light hover:text-white transition-colors"
+              className="text-ink-faint hover:text-ink transition-colors"
               aria-label="GitHub"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
             <a
               href="https://www.linkedin.com/in/jhmillett/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-light hover:text-white transition-colors"
+              className="text-ink-faint hover:text-ink transition-colors"
               aria-label="LinkedIn"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
           </div>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center justify-center px-6 pt-16">
-        <div className="max-w-3xl text-center">
-          <div className="animate-fade-in-up mb-6">
+      <section className="min-h-screen flex items-center px-6 pt-16">
+        <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-16 items-center">
+          <div>
+            <div className="animate-fade-in-up">
+              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-ember mb-6">London, UK</p>
+            </div>
+            <h1 className="font-serif text-5xl sm:text-7xl font-semibold leading-[1.05] mb-6 animate-fade-in-up animate-delay-100">
+              James<br />Millett
+            </h1>
+            <p className="text-xl sm:text-2xl text-ink-light leading-relaxed mb-4 animate-fade-in-up animate-delay-200 max-w-xl">
+              I don't just have ideas — I patent them, build them, and ship them.
+            </p>
+            <p className="text-lg text-ink-mid animate-fade-in-up animate-delay-200">
+              <span className="text-sage font-medium">Scientist</span> &middot;{' '}
+              <span className="text-slate-blue font-medium">Strategist</span> &middot;{' '}
+              <span className="text-warm-gold font-medium">Founder</span>
+            </p>
+            <div className="flex flex-wrap items-center gap-4 mt-10 animate-fade-in-up animate-delay-300">
+              <a
+                href="#projects"
+                className="px-7 py-3.5 bg-ink text-cream font-medium rounded-xl hover:bg-ink-light transition-all text-sm"
+              >
+                See my work
+              </a>
+              <a
+                href="#contact"
+                className="px-7 py-3.5 border border-card-border text-ink-mid rounded-xl hover:border-ink hover:text-ink transition-all text-sm"
+              >
+                Get in touch
+              </a>
+            </div>
+          </div>
+          <div className="animate-fade-in-up animate-delay-300 hidden lg:block">
             <img
               src="/headshot.jpg"
               alt="James Millett"
-              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto object-cover border-4 border-border shadow-lg shadow-accent/10"
+              className="w-72 h-72 rounded-3xl object-cover shadow-2xl shadow-ink/10"
+              style={{ border: '6px solid white' }}
             />
-          </div>
-          <div className="animate-fade-in-up">
-            <p className="text-accent font-mono text-sm tracking-wider uppercase mb-4">Hi, I'm</p>
-          </div>
-          <h1 className="text-5xl sm:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up animate-delay-100">
-            James Millett
-          </h1>
-          <p className="text-xl sm:text-2xl text-text-light leading-relaxed mb-8 animate-fade-in-up animate-delay-200">
-            I don't just have ideas — I patent them, build them, and ship them.
-            <br className="hidden sm:block" />
-            <span className="text-teal">Scientist</span> &middot; <span className="text-blue">Strategist</span> &middot; <span className="text-gold">Founder</span>
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all hover:scale-105"
-            >
-              See my work
-            </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 border border-border text-text-light rounded-lg hover:border-text-light hover:text-white transition-all"
-            >
-              Get in touch
-            </a>
-          </div>
-          <div className="mt-16 animate-fade-in-up animate-delay-400">
-            <svg className="w-6 h-6 mx-auto text-text-mid animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
           </div>
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="py-24 px-6">
+      <section id="about" className="py-28 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">About</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-8">A bit about me</h3>
-          <div className="grid sm:grid-cols-2 gap-8">
-            <div className="space-y-4 text-text-light leading-relaxed">
+          <SectionLabel>About</SectionLabel>
+          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-10">A bit about me</h3>
+          <div className="grid sm:grid-cols-2 gap-10">
+            <div className="space-y-5 text-ink-light leading-[1.85] text-[15px]">
               <p>
                 I'm a London-based founder with a background in life sciences and pharma strategy. Imperial College London and Cambridge trained, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients for 19 months.
               </p>
               <p>
                 I co-founded a biotech startup for Raynaud&apos;s disease,{' '}
-                <a href={PATENT_URL} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">filed a patent</a>, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness.
+                <a href={PATENT_URL} target="_blank" rel="noopener noreferrer" className="text-ember hover:underline">filed a patent</a>, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness.
               </p>
             </div>
-            <div className="space-y-4 text-text-light leading-relaxed">
+            <div className="space-y-5 text-ink-light leading-[1.85] text-[15px]">
               <p>
-                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">contributed to published research on a novel enzyme</a>, built news intelligence platforms, and launched consumer brands — from zero to live.
+                I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-sage hover:underline">contributed to published research on a novel enzyme</a>, built news intelligence platforms, and launched consumer brands — from zero to live.
               </p>
               <p>
                 Athletics captain who led 200+ athletes. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I build teams and communities around them.
@@ -323,46 +326,46 @@ function App() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-24 px-6">
+      <section id="projects" className="py-28 px-6 bg-warm-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Projects</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-12">What I've built</h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <SectionLabel>Projects</SectionLabel>
+          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">What I've built</h3>
+          <div className="grid md:grid-cols-2 gap-8">
             {PROJECTS.map((project) => {
               const isTeaser = 'isTeaser' in project
               return (
                 <div
                   key={project.name}
-                  className={`group bg-navy-light border rounded-xl p-6 transition-all hover:-translate-y-1 ${isTeaser ? 'border-gold/40 border-dashed' : 'border-border hover:border-text-mid'}`}
+                  className={`group bg-card rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5 ${isTeaser ? 'border-2 border-dashed border-warm-gold/40' : 'border border-card-border'}`}
                 >
                   <a
                     href={project.url}
                     {...(!isTeaser ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="block mb-4"
+                    className="block mb-5"
                   >
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-3 h-3 rounded-full ${isTeaser ? 'animate-pulse' : ''}`}
+                        className={`w-3 h-3 rounded-full shrink-0 ${isTeaser ? 'animate-pulse' : ''}`}
                         style={{ backgroundColor: project.accent }}
                       />
-                      <h4 className="text-xl font-semibold group-hover:text-white transition-colors">
+                      <h4 className="text-xl font-semibold text-ink group-hover:text-ember transition-colors">
                         {project.name}
                       </h4>
                       {!isTeaser && (
-                        <svg className="w-4 h-4 text-text-mid ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-ink-faint ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
                         </svg>
                       )}
                     </div>
                   </a>
-                  <p className="text-text-light text-sm leading-relaxed mb-4">
+                  <p className="text-ink-mid text-[14px] leading-relaxed mb-5">
                     <TextWithPatentLink text={project.description} />
                   </p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.tags.map(tag => (
                       <span
                         key={tag}
-                        className={`text-xs font-mono px-2 py-1 rounded-md ${tag === 'Request Access' ? 'bg-gold/20 text-gold' : 'bg-navy text-text-mid'}`}
+                        className={`text-[11px] font-medium px-2.5 py-1 rounded-lg ${tag === 'Request Access' ? 'bg-warm-gold/15 text-warm-gold' : 'bg-warm-white text-ink-mid'}`}
                       >
                         {tag}
                       </span>
@@ -373,7 +376,7 @@ function App() {
                       href={(project as { deckUrl: string }).deckUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-teal hover:underline font-mono"
+                      className="text-xs text-sage hover:underline font-medium"
                     >
                       View pitch deck &rarr;
                     </a>
@@ -381,7 +384,7 @@ function App() {
                   {isTeaser && (
                     <a
                       href={PITCH_DEMO_MAILTO}
-                      className="text-xs text-gold hover:underline font-mono"
+                      className="text-xs text-warm-gold hover:underline font-medium"
                     >
                       Request pitch &amp; demo access &rarr;
                     </a>
@@ -394,18 +397,18 @@ function App() {
       </section>
 
       {/* Skills */}
-      <section className="py-24 px-6">
+      <section className="py-28 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Skills</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-12">What I work with</h3>
+          <SectionLabel>Skills</SectionLabel>
+          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">What I work with</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SKILLS.map((group) => (
-              <div key={group.category} className="bg-navy-light border border-border rounded-xl p-6">
-                <h4 className="text-sm font-semibold text-teal mb-4">{group.category}</h4>
-                <ul className="space-y-2">
+              <div key={group.category} className="bg-card border border-card-border rounded-2xl p-7">
+                <h4 className="text-[13px] font-semibold text-sage mb-5 tracking-wide">{group.category}</h4>
+                <ul className="space-y-2.5">
                   {group.items.map(item => (
-                    <li key={item} className="text-text-light text-sm flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    <li key={item} className="text-ink-mid text-[13px] flex items-center gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -416,23 +419,23 @@ function App() {
         </div>
       </section>
 
-      {/* Experience Timeline */}
-      <section id="experience" className="py-24 px-6">
+      {/* Experience */}
+      <section id="experience" className="py-28 px-6 bg-warm-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Experience</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-12">Where I've been</h3>
-          <div className="space-y-8">
+          <SectionLabel>Experience</SectionLabel>
+          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">Where I've been</h3>
+          <div className="space-y-0">
             {EXPERIENCE.map((item, i) => (
-              <div key={i} className="flex gap-6 group">
+              <div key={i} className="flex gap-7 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-3 h-3 rounded-full bg-accent mt-1.5 shrink-0" />
-                  {i < EXPERIENCE.length - 1 && <div className="w-px flex-1 bg-border mt-2" />}
+                  <div className="w-3.5 h-3.5 rounded-full bg-ember mt-2 shrink-0 ring-4 ring-warm-white" />
+                  {i < EXPERIENCE.length - 1 && <div className="w-px flex-1 bg-card-border mt-1" />}
                 </div>
-                <div className="pb-2">
-                  <p className="text-xs font-mono text-text-mid mb-1">{item.period}</p>
-                  <h4 className="text-lg font-semibold">{item.role}</h4>
-                  <p className="text-teal text-sm mb-2">{item.company}</p>
-                  <p className="text-text-light text-sm leading-relaxed">
+                <div className="pb-12">
+                  <p className="text-[11px] font-medium tracking-wider text-ink-faint uppercase mb-1.5">{item.period}</p>
+                  <h4 className="text-lg font-semibold text-ink">{item.role}</h4>
+                  <p className="text-sage text-[14px] font-medium mb-3">{item.company}</p>
+                  <p className="text-ink-mid text-[14px] leading-[1.8]">
                     <TextWithPatentLink text={item.description} />
                   </p>
                 </div>
@@ -443,86 +446,86 @@ function App() {
       </section>
 
       {/* Education */}
-      <section id="education" className="py-24 px-6">
+      <section id="education" className="py-28 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-sm font-mono text-accent tracking-wider uppercase mb-2">Education</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-12">Where I studied</h3>
-          <div className="space-y-6">
+          <SectionLabel>Education</SectionLabel>
+          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">Where I studied</h3>
+          <div className="space-y-5">
             {EDUCATION.map((item, i) => (
-              <div key={i} className="bg-navy-light border border-border rounded-xl p-6">
+              <div key={i} className="bg-card border border-card-border rounded-2xl p-7">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-2">
-                  <h4 className="text-lg font-semibold">{item.degree}</h4>
+                  <h4 className="text-lg font-semibold text-ink">{item.degree}</h4>
                   {item.institution && (
-                    <span className="text-teal text-sm">{item.institution}</span>
+                    <span className="text-sage text-[14px] font-medium">{item.institution}</span>
                   )}
                 </div>
                 {item.detail && (
-                  <p className="text-text-light text-sm leading-relaxed">{item.detail}</p>
+                  <p className="text-ink-mid text-[14px] leading-[1.8]">{item.detail}</p>
                 )}
               </div>
             ))}
           </div>
 
           {/* Achievements */}
-          <div className="mt-8 grid sm:grid-cols-3 gap-6">
-            <div className="bg-navy-card border border-teal/30 rounded-xl p-6">
-              <h4 className="text-sm font-semibold text-teal mb-2">Published Research</h4>
-              <p className="text-text-light text-sm leading-relaxed mb-3">
+          <div className="mt-10 grid sm:grid-cols-3 gap-6">
+            <div className="bg-card border border-sage/20 rounded-2xl p-7">
+              <h4 className="text-[13px] font-semibold text-sage mb-3 tracking-wide">Published Research</h4>
+              <p className="text-ink-mid text-[13px] leading-relaxed mb-4">
                 Contributed to a paper on a novel enzyme published in ACS Synthetic Biology (data curation).
               </p>
               <a
                 href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-teal text-sm font-mono hover:underline"
+                className="text-sage text-[13px] font-medium hover:underline"
               >
                 Read the paper &rarr;
               </a>
             </div>
-            <div className="bg-navy-card border border-accent/30 rounded-xl p-6">
-              <h4 className="text-sm font-semibold text-accent mb-2">Patent Filing</h4>
-              <p className="text-text-light text-sm leading-relaxed mb-3">
+            <div className="bg-card border border-ember/20 rounded-2xl p-7">
+              <h4 className="text-[13px] font-semibold text-ember mb-3 tracking-wide">Patent Filing</h4>
+              <p className="text-ink-mid text-[13px] leading-relaxed mb-4">
                 UK patent application for transdermal technology developed at Cooden Cosmetics.
               </p>
               <a
                 href={PATENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent text-sm font-mono hover:underline"
+                className="text-ember text-[13px] font-medium hover:underline"
               >
                 View patent GB2513248.1 &rarr;
               </a>
             </div>
-            <div className="bg-navy-card border border-gold/30 rounded-xl p-6">
-              <h4 className="text-sm font-semibold text-gold mb-2">Pitch Deck</h4>
-              <p className="text-text-light text-sm leading-relaxed mb-3">
+            <div className="bg-card border border-warm-gold/20 rounded-2xl p-7">
+              <h4 className="text-[13px] font-semibold text-warm-gold mb-3 tracking-wide">Pitch Deck</h4>
+              <p className="text-ink-mid text-[13px] leading-relaxed mb-4">
                 Pre-seed pitch deck for DermaFlo — transdermal technology venture with GMP manufacturing JV.
               </p>
               <a
                 href="/deck.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gold text-sm font-mono hover:underline"
+                className="text-warm-gold text-[13px] font-medium hover:underline"
               >
                 View pitch deck &rarr;
               </a>
             </div>
           </div>
 
-          {/* Leadership callout */}
-          <div className="mt-6 bg-navy-card border border-gold/30 rounded-xl p-6">
-            <h4 className="text-sm font-semibold text-gold mb-3">Leadership</h4>
-            <ul className="space-y-2">
-              <li className="text-text-light text-sm flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+          {/* Leadership */}
+          <div className="mt-6 bg-card border border-warm-gold/20 rounded-2xl p-7">
+            <h4 className="text-[13px] font-semibold text-warm-gold mb-4 tracking-wide">Leadership</h4>
+            <ul className="space-y-3">
+              <li className="text-ink-mid text-[14px] flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-warm-gold mt-2 shrink-0" />
                 Athletics Captain — led 200+ athletes, record membership, managed &pound;10K+ budget
               </li>
-              <li className="text-text-light text-sm flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+              <li className="text-ink-mid text-[14px] flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-warm-gold mt-2 shrink-0" />
                 Political Society President &amp; Secretary — organised events for cabinet ministers, chaired debates, wrote for university newspaper
               </li>
-              <li className="text-text-light text-sm flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+              <li className="text-ink-mid text-[14px] flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-warm-gold mt-2 shrink-0" />
                 Chaired and organised an emerging viral disease conference — 130+ attendees, 6 speakers
               </li>
             </ul>
@@ -534,12 +537,12 @@ function App() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border">
+      <footer className="py-10 px-6 border-t border-card-border">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-text-mid text-sm">
+          <p className="text-ink-faint text-sm">
             &copy; {new Date().getFullYear()} James Millett
           </p>
-          <p className="text-text-mid text-xs font-mono">
+          <p className="text-ink-faint text-xs">
             London, UK
           </p>
         </div>

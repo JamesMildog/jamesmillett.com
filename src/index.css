@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0F1B2D;
-  --color-navy-light: #162336;
-  --color-navy-card: #1a2d45;
-  --color-accent: #E8462E;
-  --color-teal: #2EC4B6;
-  --color-gold: #F4A261;
-  --color-blue: #4A90D9;
-  --color-text-light: #A0AEC0;
-  --color-text-mid: #6C757D;
-  --color-border: #2A3F5F;
+  --color-cream: #FAF7F2;
+  --color-warm-white: #F5F0E8;
+  --color-ink: #1A1A1A;
+  --color-ink-light: #3D3D3D;
+  --color-ink-mid: #6B6B6B;
+  --color-ink-faint: #A3A3A3;
+  --color-ember: #C84B31;
+  --color-ember-light: #E8613D;
+  --color-sage: #4A7C6F;
+  --color-slate-blue: #4A6FA5;
+  --color-warm-gold: #C59849;
+  --color-sand: #E8DCC8;
+  --color-card: #FFFFFF;
+  --color-card-border: #E8E2D6;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -21,23 +26,53 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-navy);
-  color: #ffffff;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: var(--color-accent);
+  background-color: var(--color-ember);
   color: white;
 }
 
+/* Horizontal rule accent */
+.rule-accent {
+  width: 48px;
+  height: 3px;
+  background: var(--color-ember);
+  border: none;
+  border-radius: 2px;
+}
+
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
 }
 
