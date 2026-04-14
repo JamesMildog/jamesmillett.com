@@ -165,11 +165,11 @@ function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-28 px-6">
+    <section id="contact" className="py-16 sm:py-28 px-5 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-14">
           <SectionLabel>Contact</SectionLabel>
-          <h3 className="font-serif text-4xl sm:text-5xl font-semibold text-ink mt-4">Let's talk</h3>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink mt-4">Let's talk</h3>
           <p className="text-ink-mid mt-4 text-lg">Have an idea, opportunity, or just want to say hello?</p>
         </div>
 
@@ -257,12 +257,14 @@ function ContactSection() {
 }
 
 function App() {
+  const [mobileNav, setMobileNav] = useState(false)
+
   return (
     <div className="min-h-screen bg-cream text-ink">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/85 backdrop-blur-lg border-b border-card-border/50">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="font-serif text-xl font-semibold text-ink hover:text-ember transition-colors">
+        <div className="max-w-5xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
+          <a href="#" className="font-serif text-lg sm:text-xl font-semibold text-ink hover:text-ember transition-colors">
             James Millett
           </a>
           <div className="flex items-center gap-7">
@@ -270,7 +272,7 @@ function App() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-[13px] text-ink-mid hover:text-ink transition-colors hidden sm:block tracking-wide"
+                className="text-[13px] text-ink-mid hover:text-ink transition-colors hidden md:block tracking-wide"
               >
                 {link.label}
               </a>
@@ -279,7 +281,7 @@ function App() {
               href="https://github.com/JamesMildog"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-faint hover:text-ink transition-colors"
+              className="text-ink-faint hover:text-ink transition-colors hidden sm:block"
               aria-label="GitHub"
             >
               <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -288,34 +290,79 @@ function App() {
               href="https://www.linkedin.com/in/jhmillett/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-faint hover:text-ink transition-colors"
+              className="text-ink-faint hover:text-ink transition-colors hidden sm:block"
               aria-label="LinkedIn"
             >
               <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileNav(!mobileNav)}
+              className="md:hidden text-ink-mid hover:text-ink transition-colors cursor-pointer"
+              aria-label="Menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                {mobileNav
+                  ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                }
+              </svg>
+            </button>
           </div>
         </div>
+        {/* Mobile menu */}
+        {mobileNav && (
+          <div className="md:hidden bg-cream border-t border-card-border/50 px-5 py-4 space-y-3">
+            {NAV_LINKS.map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileNav(false)}
+                className="block text-[15px] text-ink-mid hover:text-ink transition-colors py-1"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="flex gap-4 pt-2">
+              <a href="https://github.com/JamesMildog" target="_blank" rel="noopener noreferrer" className="text-ink-faint hover:text-ink">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/jhmillett/" target="_blank" rel="noopener noreferrer" className="text-ink-faint hover:text-ink">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center px-6 pt-16">
-        <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-16 items-center">
+      <section className="min-h-screen flex items-center px-5 sm:px-6 pt-16">
+        <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center">
+          {/* Mobile headshot */}
+          <div className="lg:hidden animate-fade-in-up flex justify-center mt-4">
+            <img
+              src="/headshot.jpg"
+              alt="James Millett"
+              className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl object-cover shadow-xl shadow-ink/10"
+              style={{ border: '5px solid white' }}
+            />
+          </div>
           <div>
             <div className="animate-fade-in-up">
-              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-ember mb-6">London, UK</p>
+              <p className="text-[11px] font-semibold tracking-[3px] uppercase text-ember mb-6 text-center lg:text-left">London, UK</p>
             </div>
-            <h1 className="font-serif text-5xl sm:text-7xl font-semibold leading-[1.05] mb-6 animate-fade-in-up animate-delay-100">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-semibold leading-[1.05] mb-6 animate-fade-in-up animate-delay-100 text-center lg:text-left">
               James<br />Millett
             </h1>
-            <p className="text-xl sm:text-2xl text-ink-light leading-relaxed mb-4 animate-fade-in-up animate-delay-200 max-w-xl">
+            <p className="text-lg sm:text-xl lg:text-2xl text-ink-light leading-relaxed mb-4 animate-fade-in-up animate-delay-200 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
               I don't just have ideas — I patent them, build them, and ship them.
             </p>
-            <p className="text-lg text-ink-mid animate-fade-in-up animate-delay-200">
+            <p className="text-base sm:text-lg text-ink-mid animate-fade-in-up animate-delay-200 text-center lg:text-left">
               <span className="text-sage font-medium">Scientist</span> &middot;{' '}
               <span className="text-slate-blue font-medium">Strategist</span> &middot;{' '}
               <span className="text-warm-gold font-medium">Founder</span>
             </p>
-            <div className="flex flex-wrap items-center gap-4 mt-10 animate-fade-in-up animate-delay-300">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10 animate-fade-in-up animate-delay-300">
               <a
                 href="#projects"
                 className="px-7 py-3.5 bg-ink text-cream font-medium rounded-xl hover:bg-ink-light transition-all text-sm"
@@ -334,7 +381,7 @@ function App() {
             <img
               src="/headshot.jpg"
               alt="James Millett"
-              className="w-72 h-72 rounded-3xl object-cover shadow-2xl shadow-ink/10"
+              className="w-64 xl:w-72 h-64 xl:h-72 rounded-3xl object-cover shadow-2xl shadow-ink/10"
               style={{ border: '6px solid white' }}
             />
           </div>
@@ -342,10 +389,10 @@ function App() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-28 px-6">
+      <section id="about" className="py-16 sm:py-28 px-5 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <SectionLabel>About</SectionLabel>
-          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-10">A bit about me</h3>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-8 sm:mb-10">A bit about me</h3>
           <div className="grid sm:grid-cols-2 gap-10">
             <div className="space-y-5 text-ink-light leading-[1.85] text-[15px]">
               <p>
@@ -369,10 +416,10 @@ function App() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-28 px-6 bg-warm-white">
+      <section id="projects" className="py-16 sm:py-28 px-5 sm:px-6 bg-warm-white">
         <div className="max-w-5xl mx-auto">
           <SectionLabel>Projects</SectionLabel>
-          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">What I've built</h3>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-10 sm:mb-14">What I've built</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {PROJECTS.map((project) => {
               const isTeaser = 'isTeaser' in project
@@ -440,10 +487,10 @@ function App() {
       </section>
 
       {/* Skills */}
-      <section className="py-28 px-6">
+      <section className="py-16 sm:py-28 px-5 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <SectionLabel>Skills</SectionLabel>
-          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">What I work with</h3>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-10 sm:mb-14">What I work with</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SKILLS.map((group) => (
               <div key={group.category} className="bg-card border border-card-border rounded-2xl p-7">
@@ -463,10 +510,10 @@ function App() {
       </section>
 
       {/* Experience */}
-      <section id="experience" className="py-28 px-6 bg-warm-white">
+      <section id="experience" className="py-16 sm:py-28 px-5 sm:px-6 bg-warm-white">
         <div className="max-w-4xl mx-auto">
           <SectionLabel>Experience</SectionLabel>
-          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">Where I've been</h3>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-10 sm:mb-14">Where I've been</h3>
           <div className="space-y-0">
             {EXPERIENCE.map((item, i) => (
               <div key={i} className="flex gap-7 group">
@@ -489,10 +536,10 @@ function App() {
       </section>
 
       {/* Education */}
-      <section id="education" className="py-28 px-6">
+      <section id="education" className="py-16 sm:py-28 px-5 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <SectionLabel>Education</SectionLabel>
-          <h3 className="font-serif text-4xl sm:text-5xl font-semibold mb-14">Where I studied</h3>
+          <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold mb-10 sm:mb-14">Where I studied</h3>
           <div className="space-y-5">
             {EDUCATION.map((item, i) => (
               <div key={i} className="bg-card border border-card-border rounded-2xl p-7">
