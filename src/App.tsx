@@ -52,12 +52,18 @@ const PROJECTS = [
     accent: '#4A6FA5',
   },
   {
-    name: 'New Project — Coming Soon',
-    url: PITCH_DEMO_MAILTO,
-    description: 'Something big is in the works. Request access to the pitch deck and demo.',
-    tags: ['Stealth', 'Request Access'],
-    accent: '#C59849',
-    isTeaser: true,
+    name: 'Drug Landscape',
+    url: 'https://druglandscape.com',
+    description: 'Pharma competitive-intelligence platform. AI-first data collection across 14 sources, per-drug deep dives covering patents, trials, label expansions, biosimilars and reimbursement, plus daily CI alerts. Pembrolizumab page alone hosts 74,000 data points across 519 trials with a 97/100 quality score.',
+    tags: ['React', 'TypeScript', 'Vercel', 'Neon Postgres', 'Python pipelines', 'OpenRouter / Gemini'],
+    accent: '#5B6BFF',
+  },
+  {
+    name: 'Cogniton',
+    url: 'https://cogniton.ai',
+    description: 'AI exam coach for GCSE, A-Level and IB Science. Practise exam-style questions, get instant mark-scheme-aware feedback per rubric point, and learn the phrasing examiners reward. iOS + Android apps, original questions and notes written by ex-examiners — no scraped past papers.',
+    tags: ['React Native (Capacitor)', 'TypeScript', 'Stripe', 'RevenueCat', 'LLM marking', 'PWA'],
+    accent: '#7C5CFF',
   },
 ]
 
