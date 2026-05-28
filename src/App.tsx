@@ -47,7 +47,7 @@ const PROJECTS = [
   {
     name: 'Gigstart',
     url: 'https://www.gig-start.com',
-    description: 'Designed, built and shipped the full website for Gigstart — a specialist executive search firm placing non-technical leaders into technical companies. AI-powered chatbot, interactive hiring map, case studies, blog with 54 posts, PostHog analytics, and full SEO.',
+    description: 'Acting as CTO. Built the website, CRM, internal tooling and automation for a specialist executive search firm. Includes a chatbot, hiring map, blog, analytics and the search/scoring logic the team uses day-to-day.',
     tags: ['React', 'TypeScript', 'Tailwind', 'Vercel', 'OpenAI', 'Web3Forms'],
     accent: '#4A6FA5',
   },
