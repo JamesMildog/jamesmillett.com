@@ -30,13 +30,6 @@ const NAV_LINKS = [
 
 const PROJECTS = [
   {
-    name: 'GlobalNewly',
-    url: 'https://www.globalnewly.com',
-    description: 'Real-time global news intelligence map. Aggregates hundreds of RSS feeds across 50+ countries, clusters breaking stories by location, and delivers AI-powered briefings.',
-    tags: ['News Intelligence', 'Product', 'Global Coverage'],
-    accent: '#4A7C6F',
-  },
-  {
     name: 'Glovea (formerly DermaFlo)',
     url: 'https://www.glovea.co.uk',
     description: 'Built and ran a biotech venture for Raynaud\'s disease end to end: filed a patent, won grant funding, stood up a GMP manufacturing JV, ran user trials with 23 participants, and managed a dual regulatory strategy across cosmetic and medical-device pathways — lab bench to commercial readiness.',
@@ -50,19 +43,29 @@ const PROJECTS = [
     tags: ['Internal Tooling', 'Automation', 'CRM', 'Process'],
     accent: '#4A6FA5',
   },
+]
+
+const ADDITIONAL_PROJECTS = [
   {
     name: 'Drug Landscape',
     url: 'https://druglandscape.com',
-    description: 'Pharma competitive-intelligence platform. AI-first data collection across 14 sources, per-drug deep dives covering patents, trials, label expansions, biosimilars and reimbursement, plus daily CI alerts. Pembrolizumab page alone hosts 74,000 data points across 519 trials with a 97/100 quality score.',
+    description: 'Pharma competitive-intelligence platform — per-drug deep dives across patents, trials, biosimilars and reimbursement, with daily alerts. One drug page alone holds 74,000 data points across 519 trials.',
     tags: ['Pharma Intelligence', 'Competitive Analysis', 'Data'],
     accent: '#5B6BFF',
   },
   {
     name: 'Cogniton',
     url: 'https://cogniton.ai',
-    description: 'AI exam coach for GCSE, A-Level and IB Science. Practise exam-style questions, get instant mark-scheme-aware feedback per rubric point, and learn the phrasing examiners reward. iOS + Android apps, original questions and notes written by ex-examiners — no scraped past papers.',
+    description: 'AI exam coach for GCSE, A-Level and IB Science — instant mark-scheme-aware feedback, with original questions written by ex-examiners. Live on iOS and Android.',
     tags: ['EdTech', 'Consumer App', 'Exam Prep'],
     accent: '#7C5CFF',
+  },
+  {
+    name: 'GlobalNewly',
+    url: 'https://www.globalnewly.com',
+    description: 'Real-time global news intelligence map — hundreds of feeds across 50+ countries, clustered by location and distilled into AI briefings.',
+    tags: ['News Intelligence', 'Product', 'Global Coverage'],
+    accent: '#4A7C6F',
   },
 ]
 
@@ -487,6 +490,36 @@ function App() {
                 </div>
               )
             })}
+          </div>
+
+          {/* Additional projects */}
+          <div className="mt-16">
+            <SectionLabel>Additional projects</SectionLabel>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+              {ADDITIONAL_PROJECTS.map((project) => (
+                <a
+                  key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-card border border-card-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-ink/5 block"
+                >
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: project.accent }} />
+                    <h4 className="text-base font-semibold text-ink group-hover:text-ember transition-colors">{project.name}</h4>
+                    <svg className="w-3.5 h-3.5 text-ink-faint ml-auto opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </div>
+                  <p className="text-ink-mid text-[13px] leading-relaxed mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-warm-white text-ink-mid">{tag}</span>
+                    ))}
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
