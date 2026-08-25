@@ -495,6 +495,9 @@ function App() {
           {/* Additional projects */}
           <div className="mt-16">
             <SectionLabel>Additional projects</SectionLabel>
+            <p className="text-ink-mid text-[15px] leading-relaxed mt-3 max-w-2xl">
+              Side projects from experimenting with AI — building products end to end to see what the tools can do.
+            </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
               {ADDITIONAL_PROJECTS.map((project) => (
                 <a
