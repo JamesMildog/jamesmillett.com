@@ -33,7 +33,7 @@ const PROJECTS = [
     name: 'GlobalNewly',
     url: 'https://www.globalnewly.com',
     description: 'Real-time global news intelligence map. Aggregates hundreds of RSS feeds across 50+ countries, clusters breaking stories by location, and delivers AI-powered briefings.',
-    tags: ['React', 'TypeScript', 'Supabase', 'Leaflet', 'AI/NLP', 'Edge Functions'],
+    tags: ['News Intelligence', 'Product', 'Global Coverage'],
     accent: '#4A7C6F',
   },
   {
@@ -47,30 +47,30 @@ const PROJECTS = [
     name: 'Gigstart',
     url: 'https://www.gig-start.com',
     description: 'Built the operational backbone for a specialist executive-search firm — website, CRM, internal tooling and automation the team runs on day-to-day, including a chatbot, hiring map, blog, analytics and the search/scoring logic behind their process.',
-    tags: ['Internal Tooling', 'Automation', 'CRM', 'React', 'TypeScript', 'OpenAI'],
+    tags: ['Internal Tooling', 'Automation', 'CRM', 'Process'],
     accent: '#4A6FA5',
   },
   {
     name: 'Drug Landscape',
     url: 'https://druglandscape.com',
     description: 'Pharma competitive-intelligence platform. AI-first data collection across 14 sources, per-drug deep dives covering patents, trials, label expansions, biosimilars and reimbursement, plus daily CI alerts. Pembrolizumab page alone hosts 74,000 data points across 519 trials with a 97/100 quality score.',
-    tags: ['React', 'TypeScript', 'Vercel', 'Neon Postgres', 'Python pipelines', 'OpenRouter / Gemini'],
+    tags: ['Pharma Intelligence', 'Competitive Analysis', 'Data'],
     accent: '#5B6BFF',
   },
   {
     name: 'Cogniton',
     url: 'https://cogniton.ai',
     description: 'AI exam coach for GCSE, A-Level and IB Science. Practise exam-style questions, get instant mark-scheme-aware feedback per rubric point, and learn the phrasing examiners reward. iOS + Android apps, original questions and notes written by ex-examiners — no scraped past papers.',
-    tags: ['React Native (Capacitor)', 'TypeScript', 'Stripe', 'RevenueCat', 'LLM marking', 'PWA'],
+    tags: ['EdTech', 'Consumer App', 'Exam Prep'],
     accent: '#7C5CFF',
   },
 ]
 
 const SKILLS = [
-  { category: 'Operations & Execution', items: ['Project & Program Management', 'Process Design & SOPs', 'Vendor & Partner Management', 'Automation & Internal Tooling', 'Budgeting & Financial Modelling', 'Hiring & Team Ops'] },
+  { category: 'Operations & Execution', items: ['Project & Program Management', 'Process Design & SOPs', 'Vendor & Partner Management', 'Workflow Automation', 'Budgeting & Financial Modelling', 'Hiring & Team Ops'] },
   { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Due Diligence', 'Market Sizing', 'Competitive Landscaping', 'Regulatory & Market Access', 'Stakeholder Management'] },
-  { category: 'Data & Analysis', items: ['Primary & Secondary Research', 'Survey Design & Analysis', 'Statistical Testing', 'Revenue & Demand Modelling', 'Data Analysis (Python)'] },
-  { category: 'Technical', items: ['Python (scripting & automation)', 'Web apps (React / TypeScript)', 'Data pipelines', 'LLM / AI tooling', 'Analytics & dashboards'] },
+  { category: 'Data & Analysis', items: ['Primary & Secondary Research', 'Survey Design & Analysis', 'Statistical Testing', 'Revenue & Demand Modelling', 'Data Analysis'] },
+  { category: 'Leadership & Communication', items: ['Team Leadership', 'Public Speaking & Presenting', 'Stakeholder Communication', 'Event & Programme Organisation', 'Cross-functional Coordination'] },
 ]
 
 const EXPERIENCE = [
@@ -115,7 +115,7 @@ const EDUCATION = [
   {
     degree: 'MRes Systems & Synthetic Biology — Merit',
     institution: 'Imperial College London',
-    detail: 'Distinction in 4 of 5 modules. Quantitative modelling in Python, circuit design, biological modelling, programming robots, statistical testing. Used genetic engineering and modelling to design, build, and test engineering approaches for CBD synthesis in yeast.',
+    detail: 'Distinction in 4 of 5 modules. Quantitative and biological modelling, circuit design, statistical testing. Used genetic engineering and modelling to design, build, and test engineering approaches for CBD synthesis in yeast.',
   },
   {
     degree: 'BSc (Hons) Biological Sciences — 2:1',
@@ -594,7 +594,7 @@ function App() {
             <div className="bg-card border border-warm-gold/20 rounded-2xl p-7">
               <h4 className="text-[13px] font-semibold text-warm-gold mb-3 tracking-wide">Products Shipped</h4>
               <p className="text-ink-mid text-[13px] leading-relaxed mb-4">
-                Designed, built and shipped five live web and mobile products end to end — from data pipelines to internal tooling and consumer apps.
+                Designed, built and shipped five live products end to end — from internal operations tools to consumer apps.
               </p>
               <a
                 href="#projects"
