@@ -39,16 +39,15 @@ const PROJECTS = [
   {
     name: 'Glovea (formerly DermaFlo)',
     url: 'https://www.glovea.co.uk',
-    description: 'Biotech startup for Raynaud\'s disease: filed a patent, won grant funding, secured investment through a GMP manufacturing JV, ran user trials with 23 sufferers, dual regulatory strategy across cosmetic and medical device pathways — lab bench to commercial readiness.',
-    tags: ['Founder CEO', 'GMP Manufacturing', 'IP Strategy', 'Regulatory', 'Brand'],
+    description: 'Built and ran a biotech venture for Raynaud\'s disease end to end: filed a patent, won grant funding, stood up a GMP manufacturing JV, ran user trials with 23 participants, and managed a dual regulatory strategy across cosmetic and medical-device pathways — lab bench to commercial readiness.',
+    tags: ['Operations', 'GMP Manufacturing', 'IP Strategy', 'Regulatory', 'Partner Management'],
     accent: '#C84B31',
-    deckUrl: '/deck.pdf',
   },
   {
     name: 'Gigstart',
     url: 'https://www.gig-start.com',
-    description: 'Acting as CTO. Built the website, CRM, internal tooling and automation for a specialist executive search firm. Includes a chatbot, hiring map, blog, analytics and the search/scoring logic the team uses day-to-day.',
-    tags: ['React', 'TypeScript', 'Tailwind', 'Vercel', 'OpenAI', 'Web3Forms'],
+    description: 'Built the operational backbone for a specialist executive-search firm — website, CRM, internal tooling and automation the team runs on day-to-day, including a chatbot, hiring map, blog, analytics and the search/scoring logic behind their process.',
+    tags: ['Internal Tooling', 'Automation', 'CRM', 'React', 'TypeScript', 'OpenAI'],
     accent: '#4A6FA5',
   },
   {
@@ -68,24 +67,24 @@ const PROJECTS = [
 ]
 
 const SKILLS = [
-  { category: 'Pharma & Life Sciences', items: ['Market Access', 'Reimbursement Strategy', 'Clinical Trial Design', 'Competitive Landscaping', 'Regulatory Affairs', 'IP Strategy', 'GMP Manufacturing'] },
-  { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Brand Strategy', 'Sales Force Strategy', 'Due Diligence', 'Demand Studies', 'Financial Modelling', 'Pitch Decks'] },
-  { category: 'Research & Analysis', items: ['Primary & Secondary Research', 'Survey Design & Analysis', 'Biological Modelling', 'Statistical Testing', 'Revenue Modelling', 'Market Sizing'] },
-  { category: 'Technical', items: ['Python (scripting)', 'Data Analysis', 'Quantitative Modelling', 'Genetic Engineering', 'Lab Techniques'] },
+  { category: 'Operations & Execution', items: ['Project & Program Management', 'Process Design & SOPs', 'Vendor & Partner Management', 'Automation & Internal Tooling', 'Budgeting & Financial Modelling', 'Hiring & Team Ops'] },
+  { category: 'Strategy & Commercial', items: ['Go-to-Market', 'Due Diligence', 'Market Sizing', 'Competitive Landscaping', 'Regulatory & Market Access', 'Stakeholder Management'] },
+  { category: 'Data & Analysis', items: ['Primary & Secondary Research', 'Survey Design & Analysis', 'Statistical Testing', 'Revenue & Demand Modelling', 'Data Analysis (Python)'] },
+  { category: 'Technical', items: ['Python (scripting & automation)', 'Web apps (React / TypeScript)', 'Data pipelines', 'LLM / AI tooling', 'Analytics & dashboards'] },
 ]
 
 const EXPERIENCE = [
   {
     period: '2024 — Present',
-    role: 'Co-founder & CEO',
-    company: 'DermaFlo / Cooden Cosmetics',
-    description: 'Co-founded a biotech startup for Raynaud\'s disease, filed a patent, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness. Currently exploring new opportunities.',
+    role: 'Operations & Commercial Lead',
+    company: 'Glovea (biotech venture)',
+    description: 'Built and ran an early-stage biotech venture for Raynaud\'s disease end to end. Filed a patent, won grant funding, stood up and managed a GMP manufacturing joint venture, ran user trials with 23 participants, and led a dual regulatory strategy across cosmetic and medical-device pathways — owning budgets, timelines, suppliers and delivery from lab bench to commercial readiness. Now looking for my next role.',
   },
   {
     period: 'Apr 2022 — Oct 2023',
     role: 'Associate Consultant II & I (19 months)',
     company: 'Putnam Associates',
-    description: 'Strategy consultant to Fortune 500 biopharma, biotech, and PE/VC clients. Built long-range revenue forecast models from primary demand studies. Delivered go/no-go investment assessments for early-stage pharmaceutical assets. Developed regulatory, market access, and reimbursement strategies for indication expansions. Informed brand strategy for major product launches. Created sales force strategies for advanced therapies. Produced regulatory and distribution frameworks for global vaccine rollouts.',
+    description: 'Strategy consultant to Fortune 500 biopharma, biotech, and PE/VC clients. Ran client-facing workstreams end to end: built long-range revenue forecast models from primary demand studies, delivered go/no-go investment assessments for early-stage assets, and developed regulatory, market access and reimbursement strategies for indication expansions. Informed brand strategy for major launches, created sales-force strategies for advanced therapies, and produced distribution frameworks for global vaccine rollouts.',
   },
   {
     period: '2022',
@@ -361,12 +360,12 @@ function App() {
               James<br />Millett
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-ink-light leading-relaxed mb-4 animate-fade-in-up animate-delay-200 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-              I don't just have ideas — I patent them, build them, and ship them.
+              I take work from strategy to shipped — building the systems, tools, and operations that make it happen.
             </p>
             <p className="text-base sm:text-lg text-ink-mid animate-fade-in-up animate-delay-200 text-center lg:text-left">
-              <span className="text-sage font-medium">Scientist</span> &middot;{' '}
               <span className="text-slate-blue font-medium">Strategist</span> &middot;{' '}
-              <span className="text-warm-gold font-medium">Founder</span>
+              <span className="text-sage font-medium">Operator</span> &middot;{' '}
+              <span className="text-warm-gold font-medium">Builder</span>
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10 animate-fade-in-up animate-delay-300">
               <a
@@ -376,10 +375,10 @@ function App() {
                 See my work
               </a>
               <a
-                href="#contact"
+                href="#experience"
                 className="px-7 py-3.5 border border-card-border text-ink-mid rounded-xl hover:border-ink hover:text-ink transition-all text-sm"
               >
-                Get in touch
+                Read my CV
               </a>
             </div>
           </div>
@@ -402,11 +401,11 @@ function App() {
           <div className="grid sm:grid-cols-2 gap-10">
             <div className="space-y-5 text-ink-light leading-[1.85] text-[15px]">
               <p>
-                I'm a London-based founder with a background in life sciences and pharma strategy. Imperial College London and Cambridge trained, and former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients for 19 months.
+                I'm a London-based strategist and builder with a background in life sciences and pharma. Imperial College London and Cambridge trained, and a former strategy consultant at Putnam Associates — where I served Fortune 500 biopharma and PE/VC clients for 19 months. I'm now looking for my next role.
               </p>
               <p>
-                I co-founded a biotech startup for Raynaud&apos;s disease,{' '}
-                <a href={PATENT_URL} target="_blank" rel="noopener noreferrer" className="text-ember hover:underline">filed a patent</a>, won grant funding, secured investment through a GMP manufacturing joint venture, ran user trials with 23 sufferers, and led a dual regulatory strategy across cosmetic and medical device pathways. Took it from lab bench to commercial readiness.
+                Most recently I built and ran a biotech venture for Raynaud&apos;s disease end to end —{' '}
+                <a href={PATENT_URL} target="_blank" rel="noopener noreferrer" className="text-ember hover:underline">filed a patent</a>, won grant funding, stood up a GMP manufacturing joint venture, ran user trials with 23 participants, and led a dual regulatory strategy across cosmetic and medical-device pathways. I took it from lab bench to commercial readiness.
               </p>
             </div>
             <div className="space-y-5 text-ink-light leading-[1.85] text-[15px]">
@@ -414,7 +413,7 @@ function App() {
                 I <a href="https://pubs.acs.org/doi/10.1021/acssynbio.4c00790" target="_blank" rel="noopener noreferrer" className="text-sage hover:underline">contributed to published research on a novel enzyme</a>, built news intelligence platforms, and launched consumer brands — from zero to live.
               </p>
               <p>
-                Athletics captain who led 200+ athletes. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I build teams and communities around them.
+                Athletics captain who led 200+ athletes and a &pound;10K+ budget. Political society president who brought cabinet ministers to campus. Chaired a viral disease conference for 130+ attendees. I don't just build products — I stand up the teams, processes, and operations around them.
               </p>
             </div>
           </div>
@@ -593,17 +592,15 @@ function App() {
               </a>
             </div>
             <div className="bg-card border border-warm-gold/20 rounded-2xl p-7">
-              <h4 className="text-[13px] font-semibold text-warm-gold mb-3 tracking-wide">Pitch Deck</h4>
+              <h4 className="text-[13px] font-semibold text-warm-gold mb-3 tracking-wide">Products Shipped</h4>
               <p className="text-ink-mid text-[13px] leading-relaxed mb-4">
-                Pre-seed pitch deck for DermaFlo — transdermal technology venture with GMP manufacturing JV.
+                Designed, built and shipped five live web and mobile products end to end — from data pipelines to internal tooling and consumer apps.
               </p>
               <a
-                href="/deck.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#projects"
                 className="text-warm-gold text-[13px] font-medium hover:underline"
               >
-                View pitch deck &rarr;
+                See the projects &rarr;
               </a>
             </div>
           </div>
